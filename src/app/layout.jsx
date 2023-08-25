@@ -14,13 +14,13 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <AuthProviderPro>
-        <Navbar />
+    
        <div className="outlineSpace">
        {children}
        </div>
-        <Footer />
+
         </AuthProviderPro>
-        <AuthProviderPro>{children}</AuthProviderPro>
+     
       </body>
     </html>
   );
