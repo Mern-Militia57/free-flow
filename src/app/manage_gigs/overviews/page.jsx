@@ -151,10 +151,10 @@ console.log(gigs_title);
           <div className=" sm:w-8/12 p-5">
             <textarea
             name="gigs_title"
-              placeholder="I Will Do something, I am really good at"
+              placeholder="I Will Do something, really good at"
               style={{ height: "100px" }}
            
-              className="border  border-gray-400 text-2xl text-gray-600 rounded-md p-2 mx-1 w-full "
+              className="border  border-gray-400 text-2xl text-gray-600 rounded-md p-2 mx-1  "
             ></textarea>
           </div>
         </div>
