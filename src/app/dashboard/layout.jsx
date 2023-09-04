@@ -4,20 +4,14 @@ import logo from "@/assets/icon.png";
 import React from "react";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
-import { QueryClient, QueryClientProvider } from "react-query";
+import useAdmin from "@/Components/hooks/useAdmin";
 
 const DashboardLayout = ({ children }) => {
-  const queryClient = new QueryClient({
-    defaultQueryObserverOptions: {
-      enabled: true,
-    },
-  });
-  // TO DO
-  const isAdmin = true;
-  const isSeller = false;
+  const [isAdmin] = useAdmin();
+  const isSeller = true;
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
@@ -107,7 +101,7 @@ const DashboardLayout = ({ children }) => {
           </ul>
         </div>
       </div>
-    </QueryClientProvider>
+    </>
   );
 };
 

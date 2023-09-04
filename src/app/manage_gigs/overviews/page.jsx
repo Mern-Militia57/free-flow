@@ -4,11 +4,9 @@ import React, { useState } from "react";
 import TagsInput from "react-tagsinput";
 import "react-tagsinput/react-tagsinput.css";
 
-
-
 const Overviews = () => {
-    const [tags, setTags] = useState([]);
-    const [warns, setWarning] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [warns, setWarning] = useState([]);
 
   const handleChange = (newTags) => {
     console.log(tags);
@@ -21,10 +19,7 @@ const Overviews = () => {
     }
   };
 
-
-
-
-const [categories,setcategories] = useState( [
+  const [categories, setcategories] = useState([
     {
       name: "Graphic Design",
       subcategories: [
@@ -84,10 +79,14 @@ const [categories,setcategories] = useState( [
       ],
     },
     {
-      "name": "Lifestyle Photography",
-      "subcategories": ["Portrait Photography", "Event Photography", "Fashion Photography"]
-    }
-  ])
+      name: "Lifestyle Photography",
+      subcategories: [
+        "Portrait Photography",
+        "Event Photography",
+        "Fashion Photography",
+      ],
+    },
+  ]);
 
   const [subcategoriesFiles, setSubcategories] = useState([
     "Logo Design",
@@ -102,7 +101,7 @@ const [categories,setcategories] = useState( [
     setSubcategories(checkTheValues.subcategories);
   }
 
-  // ----------------------------------suggestionData implement
+  // --------suggestionData implement
   // const [suggestionValue,setSuggestionValue] = useState([])
   // function textTakeForSuggestion (e){
   // const getValues = e.target.value

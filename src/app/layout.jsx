@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import AuthProviderPro from "@/Components/AuthProviderFiles/AuthProviderPro";
+import Provider from "@/Components/Provider/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,11 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
-      <body className={inter.className}>
-        <AuthProviderPro>
-          <div className="outlineSpace">{children}</div>
-        </AuthProviderPro>
-      </body>
+      <Provider>
+        <body className={inter.className}>
+          <AuthProviderPro>
+            <div className="outlineSpace">{children}</div>
+          </AuthProviderPro>
+        </body>
+      </Provider>
     </html>
   );
 }
