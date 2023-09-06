@@ -1,5 +1,8 @@
 "use client";
 import GiglineTag from "@/Components/GiglineTag";
+import { useRouter } from "next/navigation";
+
+
 import React, { useState } from "react";
 import TagsInput from "react-tagsinput";
 import "react-tagsinput/react-tagsinput.css";
@@ -7,11 +10,12 @@ import "react-tagsinput/react-tagsinput.css";
 
 
 const Overviews = () => {
+  const navigationbar = useRouter()
     const [tags, setTags] = useState([]);
     const [warns, setWarning] = useState([]);
 
   const handleChange = (newTags) => {
-    console.log(tags);
+    console.log(newTags);
     if (newTags.length <= 6) {
       setWarning("");
 
@@ -96,35 +100,41 @@ const [categories,setcategories] = useState( [
     "Web Design",
     "Packaging Design",
   ]);
-  function seleteSubcategories(e) {
-    const values = e.target.value;
-    const checkTheValues = categories?.find((p) => p.name === values);
-    setSubcategories(checkTheValues.subcategories);
-  }
 
-  // ----------------------------------suggestionData implement
-  // const [suggestionValue,setSuggestionValue] = useState([])
-  // function textTakeForSuggestion (e){
-  // const getValues = e.target.value
-  // const getdata = categories.filter(category =>getValues.toLowerCase().includes(category.name.toLowerCase())
-  // )
-  // setSuggestionValue(getdata)
-  // }
+
+
+
+
 
 
 
 function OverViews (e){
-  console.log("mahfuzs");
+
 e.preventDefault()
 const gigs_title = e.target.gigs_title.value 
-console.log(gigs_title);
+const categories_gigs = e.target.categories_gigs.value 
+const Sub_categories_gigs = e.target.Sub_categories_gigs.value 
+const search_Tags = tags
+const OverViewData = {gigs_title,categories_gigs,Sub_categories_gigs,search_Tags}
+
+// const getUserDetailsData = JSON.parse(localStorage.getItem(OverViewData));
+const  ViewData = {OverViewData}
+  localStorage.setItem("gigs-profile",JSON.stringify(ViewData))
+  navigationbar.push("/manage_gigs/price")
+
+
 }
 
 
 
 
 
-
+function seleteSubcategories(e) {
+  const values = e.target.value;
+  const checkTheValues = categories?.find((p) => p.name === values);
+  console.log(checkTheValues);
+  setSubcategories(checkTheValues?.subcategories);
+}
 
 
 
@@ -151,10 +161,10 @@ console.log(gigs_title);
           <div className=" sm:w-8/12 p-5">
             <textarea
             name="gigs_title"
-              placeholder="I Will Do something, really good at"
+              placeholder="I Will Do something, I am really good at"
               style={{ height: "100px" }}
            
-              className="border  border-gray-400 text-2xl text-gray-600 rounded-md p-2 mx-1  "
+              className="border  border-gray-400 text-2xl text-gray-600 rounded-md p-2 mx-1 w-full "
             ></textarea>
           </div>
         </div>
@@ -169,21 +179,24 @@ console.log(gigs_title);
           </div>
 
           <div className=" sm:w-8/12 p-5">
-            <select
-              onChange={seleteSubcategories}
+            <select 
+             name="categories_gigs"
+             onChange={seleteSubcategories}
               className="border p-3 sm:w-5/12 "
             >
-              {categories?.map((p) => (
+              {categories?.map((p,index) => (
                 <>
-                  <option className="">{p.name}</option>
+                  <option value={p} key={index}  className="">{p.name}</option>
                 </>
               ))}
             </select>
 
-            <select className="border p-3 mx-2 sm:w-5/12">
-              {subcategoriesFiles?.map((p) => (
+            <select
+              name="Sub_categories_gigs"
+            className="border p-3 mx-2 sm:w-5/12">
+              {subcategoriesFiles?.map((p,index) => (
                 <>
-                  <option>{p || "check"}</option>
+                  <option value={p} key={index}>{p || "check"}</option>
                 </>
               ))}
             </select>
@@ -204,6 +217,7 @@ console.log(gigs_title);
           <div className=" sm:w-8/12 p-5">
             <p className="font-semibold text-red-600">{warns}</p>
             <TagsInput
+                    
               className="p-3 rounded-md  border border-gray-400"
               value={tags}
               onChange={handleChange}
