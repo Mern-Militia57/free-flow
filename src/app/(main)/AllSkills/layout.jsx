@@ -17,7 +17,7 @@ const AllSkillsLayout = ({ children }) => {
                 Browse 2 Million Freelance Experts Online
               </p>
               <p className="text-lg font-semibold">
-                Hire skilled Freelancers on Free FLow and get work done on a
+                Hire skilled Freelancers on Free Flow and get work done on a
                 flexible and secure platform.
               </p>
             </div>

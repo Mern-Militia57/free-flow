@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const SkillCard = ({ skill }) => {
@@ -11,12 +12,11 @@ const SkillCard = ({ skill }) => {
         <p>{total}</p>
         <div className="mt-10 pl-7 space-y-4 text-start">
           {skills.map((skill, index) => (
-            <p
-              className="text-gray-600 hover:text-blue-700 hover:underline cursor-pointer w-fit"
-              key={index}
-            >
-              {skill}
-            </p>
+            <Link key={index} href={`/AllSkills/${skill}`}>
+              <p className="text-gray-600 hover:text-blue-700 hover:underline cursor-pointer mb-4 w-fit">
+                {skill}
+              </p>
+            </Link>
           ))}
         </div>
         <div className="mt-8 mb-5">

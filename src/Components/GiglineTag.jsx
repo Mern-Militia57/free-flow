@@ -1,8 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { BiRightArrow } from "react-icons/bi";
-import { PiNumberCircleOneFill } from "react-icons/pi";
+import { PiNumberCircleFiveFill, PiNumberCircleOneFill } from "react-icons/pi";
 import { PiNumberCircleTwoFill } from "react-icons/pi";
 import { PiNumberCircleThreeFill } from "react-icons/pi";
 import { PiNumberCircleFourFill } from "react-icons/pi";
@@ -24,10 +25,11 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
     setmatch2(matc3);
     setmatch3(matc4);
   }, [gives0, gives1, gives2, gives3]);
+  const history = useRouter();
 
   return (
     <>
-      <div className="flex  justify-center border p-3">
+      <div className="flex justify-center border p-3">
         <button
           style={{ alignItems: "center" }}
           className={`mx-2 font-semibold flex ${match && "text-success"} `}
@@ -47,7 +49,6 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             } `}
           />
         </button>
-
         <button
           style={{ alignItems: "center" }}
           className={`mx-2 font-semibold flex ${
@@ -65,7 +66,6 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             }`}
           />
         </button>
-
         <button
           style={{ alignItems: "center" }}
           className={`mx-2 font-semibold flex ${
@@ -87,7 +87,6 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             }`}
           />
         </button>
-
         <button
           style={{ alignItems: "center" }}
           className={`mx-2 font-semibold flex ${
@@ -109,7 +108,6 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             }`}
           />
         </button>
-
         <button
           style={{ alignItems: "center" }}
           className={`mx-2 font-semibold flex ${
@@ -119,7 +117,7 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             history.push("/postjobs/seller_onboarding/account_security")
           }
         >
-          <PiNumberCircleFourFill
+          <PiNumberCircleFiveFill
             className={`text-3xl mx-2 ${
               match4 ? "text-success" : "text-gray-500"
             }  `}
