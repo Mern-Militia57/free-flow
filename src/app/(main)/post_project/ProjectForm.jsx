@@ -1,10 +1,12 @@
 "use client";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 const ProjectForm = () => {
+  const { userProfile } = useContext(AuthContextPro);
   const [skills, setSkills] = useState([]);
   const [specificCategory, setSpecificCategory] = useState(
     "Programming & Development"
@@ -46,12 +48,31 @@ const ProjectForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
+  console.log(userProfile);
   const SubmitProject = async (data) => {
     try {
-      const res = await axios.post("http://localhost:5000/post_projects", data);
+      const res = await axios.post("http://localhost:5000/post_projects", {
+        applier: userProfile?.displayName,
+        applierPhoto: userProfile?.photoURL,
+        email: userProfile?.email,
+        postingTime: new Date(),
+        category: data.category,
+        subCategory: data.subCategory,
+        title: data.title,
+        description: data.description,
+        budgetType: data.budget_type,
+        currency: data.currency,
+        budget: data.budget,
+        location: data.location,
+        publicVisibility: data.visibility_public,
+        privateVisibility: data.visibility_private,
+        question: data.question,
+        status: "pending"
+      });
       const result = res.data;
 
       if (result.insertedId) {
@@ -59,6 +80,7 @@ const ProjectForm = () => {
           title: "Project Posted Successfully",
           icon: "success",
         });
+        reset()
       } else {
         console.error("Invalid server response:", result);
       }

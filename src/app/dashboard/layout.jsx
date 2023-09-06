@@ -45,7 +45,7 @@ const DashboardLayout = ({ children }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/admin/manageJobs">All Jobs</Link>
+                  <Link href="/dashboard/admin/manageProjects">All Projects</Link>
                 </li>
                 <li>
                   <Link href="/dashboard/admin/manageGigs">Manage Gigs</Link>

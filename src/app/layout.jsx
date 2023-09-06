@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <Provider>
         <body className={inter.className}>
           <AuthProviderPro>
-            <div className="outlineSpace">{children}</div>
+            <div className="outlineSpace select-none">{children}</div>
           </AuthProviderPro>
         </body>
       </Provider>
