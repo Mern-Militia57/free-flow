@@ -2,17 +2,14 @@
 import GiglineTag from "@/Components/GiglineTag";
 import { useRouter } from "next/navigation";
 
-
 import React, { useState } from "react";
 import TagsInput from "react-tagsinput";
 import "react-tagsinput/react-tagsinput.css";
 
-
-
 const Overviews = () => {
-  const navigationbar = useRouter()
-    const [tags, setTags] = useState([]);
-    const [warns, setWarning] = useState([]);
+  const navigationbar = useRouter();
+  const [tags, setTags] = useState([]);
+  const [warns, setWarning] = useState([]);
 
   const handleChange = (newTags) => {
     console.log(newTags);
@@ -25,10 +22,7 @@ const Overviews = () => {
     }
   };
 
-
-
-
-const [categories,setcategories] = useState( [
+  const [categories, setcategories] = useState([
     {
       name: "Graphic Design",
       subcategories: [
@@ -88,10 +82,14 @@ const [categories,setcategories] = useState( [
       ],
     },
     {
-      "name": "Lifestyle Photography",
-      "subcategories": ["Portrait Photography", "Event Photography", "Fashion Photography"]
-    }
-  ])
+      name: "Lifestyle Photography",
+      subcategories: [
+        "Portrait Photography",
+        "Event Photography",
+        "Fashion Photography",
+      ],
+    },
+  ]);
 
   const [subcategoriesFiles, setSubcategories] = useState([
     "Logo Design",
@@ -101,49 +99,40 @@ const [categories,setcategories] = useState( [
     "Packaging Design",
   ]);
 
+  function OverViews(e) {
+    e.preventDefault();
+    const gigs_title = e.target.gigs_title.value;
+    const categories_gigs = e.target.categories_gigs.value;
+    const Sub_categories_gigs = e.target.Sub_categories_gigs.value;
+    const search_Tags = tags;
+    const OverViewData = {
+      gigs_title,
+      categories_gigs,
+      Sub_categories_gigs,
+      search_Tags,
+    };
 
+    // const getUserDetailsData = JSON.parse(localStorage.getItem(OverViewData));
+    const ViewData = { OverViewData };
+    localStorage.setItem("gigs-profile", JSON.stringify(ViewData));
+    navigationbar.push("/manage_gigs/price");
+  }
 
-
-
-
-
-
-function OverViews (e){
-
-e.preventDefault()
-const gigs_title = e.target.gigs_title.value 
-const categories_gigs = e.target.categories_gigs.value 
-const Sub_categories_gigs = e.target.Sub_categories_gigs.value 
-const search_Tags = tags
-const OverViewData = {gigs_title,categories_gigs,Sub_categories_gigs,search_Tags}
-
-// const getUserDetailsData = JSON.parse(localStorage.getItem(OverViewData));
-const  ViewData = {OverViewData}
-  localStorage.setItem("gigs-profile",JSON.stringify(ViewData))
-  navigationbar.push("/manage_gigs/price")
-
-
-}
-
-
-
-
-
-function seleteSubcategories(e) {
-  const values = e.target.value;
-  const checkTheValues = categories?.find((p) => p.name === values);
-  console.log(checkTheValues);
-  setSubcategories(checkTheValues?.subcategories);
-}
-
-
-
+  function seleteSubcategories(e) {
+    const values = e.target.value;
+    const checkTheValues = categories?.find((p) => p.name === values);
+    console.log(checkTheValues);
+    setSubcategories(checkTheValues?.subcategories);
+  }
 
   return (
     <>
       <GiglineTag />
 
-      <form onSubmit={OverViews} className="px-10 sm:px-0 my-16  sm:w-9/12 mx-auto">
+      <form
+        onSubmit={OverViews}
+        className="px-10 sm:px-0 my-16  sm:w-9/12 mx-auto"
+      >
         {/* -----------------------------------------------------------       */}
         <div className="sm:flex justify-center my-5 ">
           <div className="sm:w-3/12 p-5">
@@ -160,10 +149,9 @@ function seleteSubcategories(e) {
 
           <div className=" sm:w-8/12 p-5">
             <textarea
-            name="gigs_title"
+              name="gigs_title"
               placeholder="I Will Do something, I am really good at"
               style={{ height: "100px" }}
-           
               className="border  border-gray-400 text-2xl text-gray-600 rounded-md p-2 mx-1 w-full "
             ></textarea>
           </div>
@@ -179,24 +167,29 @@ function seleteSubcategories(e) {
           </div>
 
           <div className=" sm:w-8/12 p-5">
-            <select 
-             name="categories_gigs"
-             onChange={seleteSubcategories}
+            <select
+              name="categories_gigs"
+              onChange={seleteSubcategories}
               className="border p-3 sm:w-5/12 "
             >
-              {categories?.map((p,index) => (
+              {categories?.map((p, index) => (
                 <>
-                  <option value={p} key={index}  className="">{p.name}</option>
+                  <option value={p} key={index} className="">
+                    {p.name}
+                  </option>
                 </>
               ))}
             </select>
 
             <select
               name="Sub_categories_gigs"
-            className="border p-3 mx-2 sm:w-5/12">
-              {subcategoriesFiles?.map((p,index) => (
+              className="border p-3 mx-2 sm:w-5/12"
+            >
+              {subcategoriesFiles?.map((p, index) => (
                 <>
-                  <option value={p} key={index}>{p || "check"}</option>
+                  <option value={p} key={index}>
+                    {p || "check"}
+                  </option>
                 </>
               ))}
             </select>
@@ -217,7 +210,6 @@ function seleteSubcategories(e) {
           <div className=" sm:w-8/12 p-5">
             <p className="font-semibold text-red-600">{warns}</p>
             <TagsInput
-                    
               className="p-3 rounded-md  border border-gray-400"
               value={tags}
               onChange={handleChange}
@@ -225,10 +217,13 @@ function seleteSubcategories(e) {
           </div>
         </div>
 
-      <div className="sm:flex justify-end my-10">
-      <input type="submit" value={"Continue"} className="btn btn-success text-white w-3/12" />
-      </div>
-
+        <div className="sm:flex justify-end my-10">
+          <input
+            type="submit"
+            value={"Continue"}
+            className="btn btn-success text-white w-3/12"
+          />
+        </div>
       </form>
     </>
   );

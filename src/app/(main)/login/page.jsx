@@ -20,16 +20,10 @@ const LoginPage = () => {
   const search = useSearchParams();
   const from = search.get("redirectUrl") || "/";
   const { replace, refresh } = useRouter();
-  const {
- 
-    loginProfile,
-   
-    registerWithGoogle,
-    registerWithFacebook,
-  } = useContext(AuthContextPro);
+  const { loginProfile, registerWithGoogle, registerWithFacebook } =
+    useContext(AuthContextPro);
 
   const {
- 
     register,
     handleSubmit,
     formState: { errors },
@@ -115,7 +109,6 @@ const LoginPage = () => {
         }
       });
   }
-
 
   return (
     <div className="my-10 container mx-auto">

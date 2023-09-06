@@ -19,8 +19,6 @@ const Navbar = () => {
       .then((res) => setCheckProfileAvaible(res.data));
   }, []);
 
-  console.log(profileAvaible);
-
   function logoutFiles() {
     logoutProfile();
     navigationbar.push("/");

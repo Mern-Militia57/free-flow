@@ -28,7 +28,7 @@ const AllSkillsPage = () => {
       </div>
       <div className="grid px-5 lg:px-20 py-10 gap-5 grid-cols-1 lg:grid-cols-3">
         {skills.map((skill) => (
-          <SkillCard key={skill.id} skill={skill} />
+          <SkillCard key={skill._id} skill={skill} />
         ))}
       </div>
     </>
