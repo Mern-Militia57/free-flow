@@ -1,12 +1,14 @@
 "use client";
 import { useContext, useEffect } from "react";
 import axios from "axios";
-import { AuthContextPro } from "../AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
+import { AuthContextPro } from "../AuthProviderFiles/AuthProviderPro";
+
 
 const useMagicAxiosBoss = () => {
-  const { logoutProfile } = useContext(AuthContextPro);
   const compassing = useRouter();
+  const { logoutProfile } = useContext(AuthContextPro);
+
   const axiosMagic = axios.create({
     baseURL: "http://localhost:5000",
   });
