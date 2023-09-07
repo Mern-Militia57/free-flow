@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar sticky top-0 z-10 bg-gradient-to-r drop-shadow from-slate-100 to-cyan-100 py-3 px-2">
+      <div className="navbar sticky top-0 z-10 bg-gradient-to-r drop-shadow from-slate-100 to-cyan-100 py-2 px-2">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -65,7 +65,7 @@ const Navbar = () => {
               {userProfile ? (
                 <>
                   <li>
-                    <Link href="/dashboard">Profile</Link>
+                    <Link href="/dashboard">Dashboard</Link>
                   </li>
                   <li>
                     <a onClick={logoutProfile}>Logout</a>
@@ -191,11 +191,11 @@ const Navbar = () => {
                     tabIndex={0}
                     className="btn-ghost btn-circle avatar btn"
                   >
-                    <div className="w-11 border-purple-900 border-2 rounded-full">
+                    <div className="w-10 border-purple-900 border-2 rounded-full">
                       <Image
                         title={userProfile?.displayName}
-                        width={180}
-                        height={180}
+                        width={150}
+                        height={150}
                         alt=""
                         src={userProfile?.photoURL || ""}
                       />
@@ -203,25 +203,31 @@ const Navbar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+                    className="menu-compact dropdown-content menu mt-3 w-52 bg-base-100 p-2 shadow"
                   >
                     <li className="mb-2 mt-1 text-center font-semibold">
                       {userProfile?.displayName}
                     </li>
                     <div className="divider my-0"></div>
-                    <li className="mb-2">
-                      <Link
-                        href="/dashboard"
-                        className="text-lg"
-                        activeClassName="text-blue-500"
-                      >
-                        Profile
+                    <li className="mb-1">
+                      <Link href="/dashboard" className="text-lg">
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li className="mb-1">
+                      <Link href="/post_project" className="text-lg">
+                        Post a Project
+                      </Link>
+                    </li>
+                    <li className="mb-1">
+                      <Link href="/postjobs" className="text-lg">
+                        Become a Seller
                       </Link>
                     </li>
                     <li className="">
                       <button
                         onClick={logoutFiles}
-                        className="btn bg-red-500  content-center text-white"
+                        className="btn btn-sm bg-green-500  content-center text-white"
                       >
                         Logout
                       </button>
