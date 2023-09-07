@@ -17,7 +17,7 @@ const Navbar = () => {
     axiosMagic
       .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
-  }, []);
+  }, [userProfile?.email, axiosMagic]);
 
   function logoutFiles() {
     logoutProfile();
