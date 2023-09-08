@@ -206,6 +206,8 @@ const ProjectForm = () => {
               </option>
               <option>Fixed Price</option>
               <option>Per Hour</option>
+              <option>Per Month</option>
+              <option>Per Ad Rate</option>
             </select>
           </div>
           <div className="form-control w-full md:w-1/2">
