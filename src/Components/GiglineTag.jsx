@@ -34,7 +34,7 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
           style={{ alignItems: "center" }}
           className={`mx-2 font-semibold flex ${match && "text-success"} `}
           onClick={() =>
-            history.push("/postjobs/seller_onboarding/personal_info")
+            history.push("/manage_gigs/overviews")
           }
         >
           <PiNumberCircleOneFill
@@ -55,7 +55,7 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             match2 ? "text-success" : "text-gray-500"
           }`}
           onClick={() =>
-            history.push("/postjobs/seller_onboarding/professional_info")
+            history.push("/manage_gigs/price")
           }
         >
           <PiNumberCircleTwoFill className="text-3xl mx-2" />
@@ -72,7 +72,7 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             match3 ? "text-success" : "text-gray-500"
           }`}
           onClick={() =>
-            history.push("/postjobs/seller_onboarding/linked_account")
+            history.push("/manage_gigs/description")
           }
         >
           <PiNumberCircleThreeFill
@@ -93,7 +93,7 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             match4 ? "text-success" : "text-gray-500"
           }`}
           onClick={() =>
-            history.push("/postjobs/seller_onboarding/account_security")
+            history.push("/manage_gigs/gallary")
           }
         >
           <PiNumberCircleFourFill
@@ -108,27 +108,7 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
             }`}
           />
         </button>
-        <button
-          style={{ alignItems: "center" }}
-          className={`mx-2 font-semibold flex ${
-            match4 ? "text-success" : "text-gray-500"
-          }`}
-          onClick={() =>
-            history.push("/postjobs/seller_onboarding/account_security")
-          }
-        >
-          <PiNumberCircleFiveFill
-            className={`text-3xl mx-2 ${
-              match4 ? "text-success" : "text-gray-500"
-            }  `}
-          />
-          Publish
-          <BiRightArrow
-            className={`text-2xl mx-1  ${
-              match4 ? "text-success" : "text-gray-500"
-            }`}
-          />
-        </button>
+     
       </div>
     </>
   );
