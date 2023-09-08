@@ -18,7 +18,7 @@ const ManageProjectsPage = () => {
         console.log(data);
         if (data.modifiedCount) {
           refetch();
-          new Swal.fire("Approved!", "Project is Approved", "success");
+          Swal.fire("Approved!", "Project is Approved", "success");
         }
       });
   };
@@ -30,7 +30,7 @@ const ManageProjectsPage = () => {
         console.log(data);
         if (data.modifiedCount) {
           refetch();
-          new Swal.fire("Denied!", "Project is Denied", "error");
+          Swal.fire("Denied!", "Project is Denied", "error");
         }
       });
   };
