@@ -48,7 +48,7 @@ color: green !important;
 
 
 .rdw-editor-toolbar{
-  background-color: rgba(135, 241, 255, 0.87) !important;
+  background-color: rgba(124, 124, 124, 0.87) !important;
 
 }
 .rdw-editor-main{
@@ -63,9 +63,10 @@ color: green !important;
 }
 
 .rdw-editor-main::-webkit-scrollbar-thumb {
-  background-color: rgba(40, 211, 91, 0.733) /* Change 'red' to your desired color */
+  background-color: rgba(54, 54, 54, 0.733) /* Change 'red' to your desired color */
 }
 
 .rdw-editor-main::-webkit-scrollbar-track {
-  background-color: rgb(0, 0, 0); /* Change 'green' to your desired color */
+  background-color: rgb(255, 255, 255); /* Change 'green' to your desired color */
 }
+

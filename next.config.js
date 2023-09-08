@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-      domains: ['img.freepik.com', 'lh3.googleusercontent.com', 'encrypted-tbn0.gstatic.com','plus.unsplash.com'],
+      domains: ['i.ibb.co','img.freepik.com', 'lh3.googleusercontent.com', 'encrypted-tbn0.gstatic.com','plus.unsplash.com','www.nbmchealth.com'],
   },
 };
 
