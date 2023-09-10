@@ -45,6 +45,7 @@ const RegistrationPage = () => {
           name: displayName,
           email: email,
           photo: url,
+          role: "buyer",
         }),
       });
       const result = await res.json();

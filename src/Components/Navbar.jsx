@@ -6,9 +6,12 @@ import Link from "next/link";
 import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
 import useMagicAxiosBoss from "./hooks/useMagicAxiosBoss";
+import { FaRegBell, FaRegHeart, FaRegMessage } from "react-icons/fa6";
+import useSeller from "./hooks/useSeller";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
+  const [isSeller] = useSeller();
   const navigationbar = useRouter();
 
   const [axiosMagic] = useMagicAxiosBoss();
@@ -159,7 +162,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-          {userProfile ? (
+          {/* {userProfile ? (
             <>
               <Link
                 href={
@@ -181,7 +184,21 @@ const Navbar = () => {
                 </button>
               </Link>
             </>
-          )}
+          )} */}
+          <div className="hidden md:flex gap-6 items-center mx-6">
+            <div className="cursor-pointer">
+              <FaRegBell className="text-xl" />
+            </div>
+            <div className="cursor-pointer">
+              <FaRegMessage className="text-xl" />
+            </div>
+            <div className="cursor-pointer hidden">
+              <FaRegHeart className="text-xl" />
+            </div>
+            <div className="cursor-pointer">
+              <p className="text-[16px] font-medium">Orders</p>
+            </div>
+          </div>
 
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">
@@ -210,18 +227,33 @@ const Navbar = () => {
                     </li>
                     <div className="divider my-0"></div>
                     <li className="mb-1">
-                      <Link href="/dashboard" className="text-lg">
-                        Dashboard
-                      </Link>
-                    </li>
-                    <li className="mb-1">
                       <Link href="/post_project" className="text-lg">
                         Post a Project
                       </Link>
                     </li>
+                    {isSeller ? (
+                      <>
+                        <li className="mb-1">
+                          <Link
+                            href="/manage_gigs/overviews"
+                            className="text-lg"
+                          >
+                            Post a Gig
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="mb-1">
+                          <Link href="/postjobs" className="text-lg">
+                            Become a Seller
+                          </Link>
+                        </li>
+                      </>
+                    )}
                     <li className="mb-1">
-                      <Link href="/postjobs" className="text-lg">
-                        Become a Seller
+                      <Link href="/dashboard" className="text-lg">
+                        Dashboard
                       </Link>
                     </li>
                     <li className="">

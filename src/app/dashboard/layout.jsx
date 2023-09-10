@@ -8,7 +8,7 @@ import useAdmin from "@/Components/hooks/useAdmin";
 
 const DashboardLayout = ({ children }) => {
   const [isAdmin] = useAdmin();
-  const isSeller = true;
+  const isSeller = false;
 
   return (
     <>
@@ -78,9 +78,6 @@ const DashboardLayout = ({ children }) => {
                 <li>
                   <a>Invoices</a>
                 </li>
-                <li>
-                  <a>Profile</a>
-                </li>
               </>
             ) : (
               <>
@@ -88,13 +85,13 @@ const DashboardLayout = ({ children }) => {
                   <a>Overview</a>
                 </li>
                 <li>
-                  <a>My Jobs</a>
+                  <a>Posted Projects</a>
                 </li>
                 <li>
                   <a>Selected Gigs</a>
                 </li>
                 <li>
-                  <a>Payments</a>
+                  <a>Payments & Invoices</a>
                 </li>
               </>
             )}
