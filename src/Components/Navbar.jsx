@@ -54,7 +54,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link href="/findjobs">Find Jobs</Link>
+                <Link href="/findprojects">Find Jobs</Link>
               </li>
               <li>
                 <Link href="/freelancer">Freelancer</Link>
@@ -99,10 +99,10 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal text-[16px] font-medium px-1">
                 <li className="border-x-2 border-black">
-                  <Link href="/findjobs">Find Jobs</Link>
+                  <Link href="/findprojects">Projects</Link>
                 </li>
                 <li className="border-r-2 border-black">
-                  <Link href="/freelancer">Freelancer</Link>
+                  <Link href="/freelancer">Freelancers</Link>
                 </li>
                 <li className="border-r-2 border-black">
                   <Link href="/about">About</Link>

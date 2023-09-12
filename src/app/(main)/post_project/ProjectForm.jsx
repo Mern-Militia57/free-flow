@@ -67,6 +67,7 @@ const ProjectForm = () => {
         budgetType: data.budget_type,
         currency: data.currency,
         budget: data.budget,
+        duration: data.duration,
         location: data.location,
         publicVisibility: data.visibility_public,
         privateVisibility: data.visibility_private,
