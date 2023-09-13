@@ -20,52 +20,61 @@ const ProjectDetailsPage = ({ params }) => {
   }, [id, projects]);
 
   return (
-    <div>
-      <div className="w-full bg-base-100 p-10">
-        {SingleProject ? (
-          <div className="">
+    <>
+      {SingleProject ? (
+        <main className="bg-base-200 py-10">
+          <div className="p-5 md:p-8 container mx-auto bg-white">
             <div className="flex justify-between">
-              <div className="">
-                <h2 className="text-3xl font-bold">{SingleProject.title}</h2>
+              <div className="border-b-2 mb-2 pb-4">
+                <h2 className="text-2xl md:text-4xl font-semibold">
+                  {SingleProject.title}
+                </h2>
               </div>
-              <div className="text-2xl font-bold text-end text-blue-700">
-                <>
-                  <p>{SingleProject.currency}</p>
-                </>
-                <>
-                  <p>{SingleProject.budget}</p>
-                </>
+              <div className="text-2xl font-bold text-end text-blue-700 flex flex-col md:flex-row gap-2 md:gap-5">
+                <p>{SingleProject.budgetType}</p>
+                <p>{SingleProject.currency}</p>
+                <p>{SingleProject.budget}</p>
               </div>
             </div>
             <div className="flex gap-2 font-medium">
               <div>
-                <p>{SingleProject.budgetType}</p>
+                <p>
+                  <span>Posted :</span> {SingleProject.postingTime}
+                </p>
               </div>
               <div>
-                <p>{SingleProject.location}</p>
+                <p>
+                  <span>Location : </span>
+                  {SingleProject.location}
+                </p>
               </div>
             </div>
-            <p>
-              <span className="text-lg mr-3">Category:</span>
-              {SingleProject.category}
-            </p>
-            <p>
-              <span className="text-lg mr-3">Description:</span>
-              {SingleProject.description}
-            </p>
-            <div className="justify-end">
+            <div className="my-3 flex gap-3">
               <>
-                <button className="btn bg-green-600 hover:bg-green-800 text-white">
-                  details
+                <button className="bg-emerald-200 px-2 py-1 text-sm text-gray-600">
+                  {SingleProject.category}
+                </button>
+              </>
+              <>
+                <button className="bg-emerald-200 px-2 py-1 text-sm text-gray-600">
+                  {SingleProject.subCategory}
                 </button>
               </>
             </div>
+            <div className="my-5">
+              <div className="border-b-2 mb-4 w-fit">
+                <h1 className="text-3xl font-light">Description</h1>
+              </div>
+              <div>
+                <p>{SingleProject.description}</p>
+              </div>
+            </div>
           </div>
-        ) : (
-          <Loading />
-        )}
-      </div>
-    </div>
+        </main>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 };
 
