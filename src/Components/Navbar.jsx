@@ -185,20 +185,22 @@ const Navbar = () => {
               </Link>
             </>
           )} */}
-          <div className="hidden md:flex gap-6 items-center mx-6">
-            <div className="cursor-pointer">
-              <FaRegBell className="text-xl" />
+          {userProfile && (
+            <div className="hidden md:flex gap-6 items-center mx-6">
+              <div className="cursor-pointer">
+                <FaRegBell className="text-xl" />
+              </div>
+              <div className="cursor-pointer">
+                <FaRegMessage className="text-xl" />
+              </div>
+              <div className="cursor-pointer hidden">
+                <FaRegHeart className="text-xl" />
+              </div>
+              <div className="cursor-pointer">
+                <p className="text-[16px] font-medium">Orders</p>
+              </div>
             </div>
-            <div className="cursor-pointer">
-              <FaRegMessage className="text-xl" />
-            </div>
-            <div className="cursor-pointer hidden">
-              <FaRegHeart className="text-xl" />
-            </div>
-            <div className="cursor-pointer">
-              <p className="text-[16px] font-medium">Orders</p>
-            </div>
-          </div>
+          )}
 
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">

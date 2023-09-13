@@ -2,6 +2,7 @@
 import useProjects from "@/Components/hooks/useProjects";
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
+import Image from "next/image";
 
 const ProjectDetailsPage = ({ params }) => {
   const id = params.id;
@@ -51,12 +52,12 @@ const ProjectDetailsPage = ({ params }) => {
             </div>
             <div className="my-3 flex gap-3">
               <>
-                <button className="bg-emerald-200 px-2 py-1 text-sm text-gray-600">
+                <button className="bg-emerald-200 px-2 py-1 text-sm text-gray-700">
                   {SingleProject.category}
                 </button>
               </>
               <>
-                <button className="bg-emerald-200 px-2 py-1 text-sm text-gray-600">
+                <button className="bg-emerald-200 px-2 py-1 text-sm text-gray-700">
                   {SingleProject.subCategory}
                 </button>
               </>
@@ -67,6 +68,22 @@ const ProjectDetailsPage = ({ params }) => {
               </div>
               <div>
                 <p>{SingleProject.description}</p>
+              </div>
+            </div>
+            <div className="my-5 flex gap-5">
+              <div className="avatar">
+                <div className="mask mask-squircle">
+                  <Image
+                    src={SingleProject.applierPhoto}
+                    width={45}
+                    height={45}
+                    alt=""
+                  ></Image>
+                </div>
+              </div>
+              <div>
+                <p>{SingleProject.applier}</p>
+                <p>{SingleProject.email}</p>
               </div>
             </div>
           </div>

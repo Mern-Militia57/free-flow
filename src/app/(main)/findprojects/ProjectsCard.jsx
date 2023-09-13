@@ -44,7 +44,7 @@ const ProjectsCard = () => {
           </div>
           <input
             type="text"
-            placeholder="Type here"
+            placeholder="Search Project"
             className="input input-bordered w-1/2"
           />
           <button className="btn bg-base-200">
@@ -52,7 +52,7 @@ const ProjectsCard = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 my-10 px-2 md:px-10 container mx-auto gap-10">
+      <div className="grid grid-cols-1 my-10 px-2 md:px-10 container mx-auto gap-5">
         {approvedProjects.map((approvedProject) => (
           <div
             className="card w-full bg-base-100 shadow-xl"
