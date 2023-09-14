@@ -67,6 +67,7 @@ const ProjectForm = () => {
         budgetType: data.budget_type,
         currency: data.currency,
         budget: data.budget,
+        duration: data.duration,
         location: data.location,
         publicVisibility: data.visibility_public,
         privateVisibility: data.visibility_private,
@@ -206,6 +207,8 @@ const ProjectForm = () => {
               </option>
               <option>Fixed Price</option>
               <option>Per Hour</option>
+              <option>Per Month</option>
+              <option>Per Ad Rate</option>
             </select>
           </div>
           <div className="form-control w-full md:w-1/2">

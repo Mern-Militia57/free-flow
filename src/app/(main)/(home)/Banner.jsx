@@ -10,13 +10,13 @@ import { SlBadge } from "react-icons/sl";
 const Banner = () => {
   return (
     <>
-      <div className="hero bg-gradient-to-t from-cyan-200 to-slate-100 py-10">
-        <div className="hero-content flex-col justify-around lg:flex-row-reverse">
+      <div className="hero bg-gradient-to-t from-cyan-200 to-slate-100 py-14">
+        <div className="hero-content flex-col justify-around lg:flex-row-reverse px-10">
           <div className="flex flex-col lg:flex-row gap-2">
             <div>
               <Image
                 className="max-w-sm rounded-l-md shadow-xl"
-                height={460}
+                height={396}
                 src={pic1}
                 alt=""
               ></Image>
@@ -24,13 +24,13 @@ const Banner = () => {
             <div className="flex flex-row gap-2 lg:flex-col">
               <Image
                 className="max-w-sm hidden lg:block rounded-tr-md"
-                width={350}
+                width={300}
                 src={pic2}
                 alt=""
               ></Image>
               <Image
                 className="max-w-sm hidden lg:block rounded-br-md shadow-xl"
-                width={350}
+                width={300}
                 src={pic3}
                 alt=""
               ></Image>
@@ -53,7 +53,7 @@ const Banner = () => {
                 className="input w-full max-w-2xl"
               />
             </div>
-            <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white">
+            <button className="btn bg-cyan-700 hover:bg-cyan-900 text-white">
               Search
             </button>
           </div>
