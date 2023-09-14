@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { AuthContextPro } from "../AuthProviderFiles/AuthProviderPro";
-import useMagicAxiosBoss from "./useMagicAxiosBoss";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
+import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import { useQuery } from "react-query";
 
 const useAdmin = () => {

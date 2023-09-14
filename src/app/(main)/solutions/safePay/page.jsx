@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import img from "../../../../assets/download.webp";
+import img from "@/assets/download.webp";
 const SafePayPage = () => {
   return (
     <div className="mx-auto container">

@@ -1,11 +1,11 @@
 import React from "react";
 import { BsTelephoneFill } from "react-icons/bs";
-import hello from "../../../../assets/customize.png";
-import compliant from "../../../../assets/compliant.png";
-import price from "../../../../assets/low-price.png";
-import price1 from "../../../../assets/low-cost.png";
-import free from "../../../../assets/freelancer.png";
-import man from "../../../../assets/man.jpg";
+import hello from "@/assets/customize.png";
+import compliant from "@/assets/compliant.png";
+import price from "@/assets/low-price.png";
+import price1 from "@/assets/low-cost.png";
+import free from "@/assets/freelancer.png";
+import man from "@/assets/man.jpg";
 import Image from "next/image";
 import { AiOutlineSolution } from "react-icons/ai";
 import { MdOutlineManageAccounts } from "react-icons/md";

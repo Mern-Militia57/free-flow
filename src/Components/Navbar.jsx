@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import logo from "../assets/icon.png";
+import logo from "@/assets/icon.png";
 import Link from "next/link";
-import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
-import useMagicAxiosBoss from "./hooks/useMagicAxiosBoss";
+import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
@@ -17,7 +17,7 @@ const Navbar = () => {
     axiosMagic
       .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
-  }, []);
+  }, [axiosMagic, userProfile?.email]);
 
   function logoutFiles() {
     logoutProfile();

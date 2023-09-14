@@ -2,7 +2,7 @@
 import { useContext, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { AuthContextPro } from "../AuthProviderFiles/AuthProviderPro";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 
 
 const useMagicAxiosBoss = () => {
