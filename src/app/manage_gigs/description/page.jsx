@@ -1,5 +1,5 @@
 "use client"
-import  { useRef, useState } from 'react';
+import  { Suspense, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const Editor = dynamic(
@@ -14,10 +14,14 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'; // Styling for the ed
 // import { Editor as WysiwygEditor } from 'react-draft-wysiwyg';
 import GiglineTag from '@/Components/GiglineTag';
 import Image from 'next/image';
-import LoginPage from '@/app/(main)/login/page';
+
+import swal from 'sweetalert';
+import { useRouter } from 'next/navigation';
+import Loading from '../price/loading';
 
 const Dashboard = () => {
-
+  
+const navigationbar = useRouter()
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 const handleEditorStateChange = (newEditorState) => {
     setEditorState(newEditorState);
@@ -45,22 +49,16 @@ const [extraWarn, setDetails] = useState("")
 
 function FaqQuestion(e){
   e.preventDefault()
-
   const Question = e.target.question.value 
   const Details =  e.target.details.value
   const data = {Question,Details}
    setDetails(Details)
+
  if(receveFaq.length <5 && Details.length < 300 ){
   setFaq([...receveFaq,data])
   e.target.reset()
- 
- }
- 
 }
-
-
-
-
+}
 
 function DeleteQuestion (props){
 const getValues = receveFaq.filter(p=>p.Question !== props)
@@ -76,17 +74,54 @@ setFaq(getValues)
 
 
 
+function DescriptionAndFaq (){
+
+if(receveFaq.length >= 1 && textLength >= 1){
+  const details = getEditorContent()
+  const faq = receveFaq
+  const Details_And_Faq = {details,faq}
+    
+  
+   
+
+   const localStorageVlaue= JSON.parse(localStorage.getItem("gigs-profile"))
+  if(localStorageVlaue){
+  localStorageVlaue.Details_And_Faq = Details_And_Faq
+
+
+
+  localStorage.setItem("gigs-profile", JSON.stringify(localStorageVlaue));
+
+  navigationbar.push("/manage_gigs/gallary")
+  }
+  
+}else{
+   new swal({
+    icon: 'warning',
+    title: 'Warning',
+    text: 'You did not fill up all fields',
+    confirmButtonText: 'OK',
+  });
+}
+}
+
+
+
+
+
+
   return (
+    <Suspense fallback={Loading}>
     <>
     <div>
-    <GiglineTag />
+    <GiglineTag gives0={true} gives1={true} gives2={true}/>
 
     <div className='p-10 sm:px-20 '>
 
     <p className='text-4xl text-gray-6s00 border-l-8 border-red-500 p-2 my-4'>Description</p>
    <hr className='border sm:w-8/12 border-gray-500  my-3'></hr>
    <p className='font-bold my-2 text-gray-500'>Briefly Describe Your Gig</p>
-   <div  className= 'relative sm:w-9/12 border-2 min-h-[15rem] mb-20 '>
+   <div  className= 'relative sm:w-9/12 border-2 border-gray-600  min-h-[15rem] '>
 
    
    <Editor
@@ -123,7 +158,7 @@ setFaq(getValues)
 <hr className='border sm:w-8/12 border-gray-300  my-5'></hr>
 <p className='text-xl font-bold text-gray-500 mb-5'>Add Questions & Answers for Your Buyers</p>
 
-<form onSubmit={FaqQuestion} className=' sm:w-10/12'>
+<form onSubmit={FaqQuestion} className=' sm:w-10/12 '>
 <input required name='question' placeholder="Add a Question: i.e. Do you translate to English as well?" type='text' className='p-2 border border-gray-600  sm:w-10/12 '></input>
 <textarea required
             name="details"
@@ -161,10 +196,22 @@ receveFaq.map((p,index)=><>
 }
 
 </div>
+</div>
+
+
+
+
+
+<div className="sm:flex justify-end  mb-10">
+          <button 
+          onClick={DescriptionAndFaq}
+ className="btn btn-success text-white mx-10 w-2/12"
+          >Continue</button>
+        </div>
 
 </div>
-</div>
     </>
+    </Suspense>
   );
 };
 

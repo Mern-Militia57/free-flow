@@ -2,11 +2,13 @@
 const nextConfig = {
   images: {
     domains: [
+      "i.ibb.co",
       "img.freepik.com",
       "lh3.googleusercontent.com",
       "encrypted-tbn0.gstatic.com",
       "plus.unsplash.com",
       "images.unsplash.com",
+      "www.nbmchealth.com",
     ],
   },
 };
