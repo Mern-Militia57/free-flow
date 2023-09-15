@@ -89,6 +89,7 @@ const ProfessionalInfo = () => {
   const freelancerSkills = [
     "Select Your Skill",
     "Web Design",
+    "Web Developer",
     "Graphic Design",
     "Content Writing",
     "Digital Marketing",
@@ -187,7 +188,7 @@ const ProfessionalInfo = () => {
     setbutton(false);
     setwarning("");
   }
-  console.log(storeSkillValues);
+  // console.log(storeSkillValues);
 
   // ===============================================================================
 

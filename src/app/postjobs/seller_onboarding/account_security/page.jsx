@@ -1,18 +1,26 @@
 "use client";
 import Buttonline from "@/Components/Buttonline";
 import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
-import { Suspense, useState } from "react";
+import { Suspense, useContext, useState } from "react";
 import swal from "sweetalert";
 import Loading from "../professional_info/loading";
 import { useRouter } from "next/navigation";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 
 const AccountSecurity = () => {
   const [axiosMagic] = useMagicAxiosBoss();
+  const {userProfile} = useContext(AuthContextPro)
   const [isTrue, setTrue] = useState(true);
   const router = useRouter();
   const submitToDataBase = () => {
     const getUserDetailsData = JSON.parse(localStorage.getItem("details"));
     console.log(getUserDetailsData);
+
+    axiosMagic.patch(`/users/seller/${userProfile.email}`)
+    .then((res) =>{
+      const result = res.data
+      console.log(result);
+    })
 
     axiosMagic
       .post(`/userdetails_post`, getUserDetailsData)
