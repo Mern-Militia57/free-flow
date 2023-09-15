@@ -86,6 +86,11 @@ const ProjectDetailsPage = ({ params }) => {
                 <p>{SingleProject.email}</p>
               </div>
             </div>
+            <div className="text-end">
+              <button className="btn bg-green-600 hover:bg-green-800 text-white">
+                Send Proposal
+              </button>
+            </div>
           </div>
         </main>
       ) : (
