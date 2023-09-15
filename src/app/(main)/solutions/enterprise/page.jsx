@@ -1,11 +1,11 @@
 import React from "react";
 import { BsTelephoneFill } from "react-icons/bs";
-import hello from "../../../../assets/customize.png";
-import compliant from "../../../../assets/compliant.png";
-import price from "../../../../assets/low-price.png";
-import price1 from "../../../../assets/low-cost.png";
-import free from "../../../../assets/freelancer.png";
-import man from "../../../../assets/man.jpg";
+import hello from "@/assets/customize.png";
+import compliant from "@/assets/compliant.png";
+import price from "@/assets/low-price.png";
+import price1 from "@/assets/low-cost.png";
+import free from "@/assets/freelancer.png";
+import man from "@/assets/man.jpg";
 import Image from "next/image";
 import { AiOutlineSolution } from "react-icons/ai";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -14,9 +14,11 @@ import { GrServices } from "react-icons/gr";
 import { HiUserGroup } from "react-icons/hi";
 import { LiaFileContractSolid } from "react-icons/lia";
 import { IconName, TbCurrencyDollarOff } from "react-icons/tb";
-import Link from "next/link";
+
+
 
 const EnterprisePage = () => {
+
   return (
     <div className=" container mx-auto">
       <div className="bg-gradient-to-br relative  text-white py-32 p-6 from-[#363E51] to-[#363E51]">
@@ -28,7 +30,7 @@ const EnterprisePage = () => {
           affordably online with Freelancers.
         </h1>
 
-        <button
+        <button   
           className="btn bg-[#0b6bb4] mt-5
            text-white font-bold border-none hover:bg-[#1e81cc]"
         >
@@ -106,7 +108,7 @@ const EnterprisePage = () => {
           </h1>
           <p>
             Our compliance team protects you from misclassification risks and
-            reduces your administrative and legal burden.
+            reduces your istrative and legal burden.
           </p>
         </div>
         <div className="shadow-md shadow-[#b2b6b9] rounded border p-4">
@@ -192,7 +194,7 @@ const EnterprisePage = () => {
             </div>
           </div>
           <div>
-            <h1 className="font-bold text-xl">Abdur Rahman</h1>
+            <h1 className="font-bold text-xl">Abdul Rahman</h1>
             <p>Founder & CEO, flow.com</p>
           </div>
         </div>

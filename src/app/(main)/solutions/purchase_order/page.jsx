@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import pur from "../../../../assets/purchase-order.png";
-import pur1 from "../../../../assets/purchase-order1.png";
-import img1 from "../../../../assets/pngwing.png";
-import img2 from "../../../../assets/pngwing1.png";
+import pur from "@/assets/purchase-order.png";
+import pur1 from "@/assets/purchase-order1.png";
+import img1 from "@/assets/pngwing.png";
+import img2 from "@/assets/pngwing1.png";
 const PurchaseOrderPage = () => {
   return (
     <div className="mx-auto container">

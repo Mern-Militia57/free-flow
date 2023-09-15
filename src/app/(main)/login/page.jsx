@@ -45,6 +45,7 @@ const LoginPage = () => {
           name: displayName,
           email: email,
           photo: photo,
+          role: "buyer"
         }),
       });
 

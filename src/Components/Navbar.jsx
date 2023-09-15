@@ -1,14 +1,17 @@
 "use client";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import logo from "../assets/icon.png";
+import logo from "@/assets/icon.png";
 import Link from "next/link";
-import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
-import useMagicAxiosBoss from "./hooks/useMagicAxiosBoss";
+import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
+import { FaRegBell, FaRegHeart, FaRegMessage } from "react-icons/fa6";
+import useSeller from "@/Components/hooks/useSeller";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
+  const [isSeller] = useSeller();
   const navigationbar = useRouter();
 
   const [axiosMagic] = useMagicAxiosBoss();
@@ -18,11 +21,15 @@ const Navbar = () => {
     axiosMagic
       .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
+<<<<<<< HEAD
   }, [axiosMagic,userProfile?.email]);
 
 
 
 
+=======
+  }, [axiosMagic, userProfile?.email]);
+>>>>>>> main
 
   function logoutFiles() {
     logoutProfile();
@@ -56,7 +63,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link href="/findjobs">Find Jobs</Link>
+                <Link href="/findprojects">Find Jobs</Link>
               </li>
               <li>
                 <Link href="/freelancer">Freelancer</Link>
@@ -101,13 +108,16 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal text-[16px] font-medium px-1">
                 <li className="border-x-2 border-black">
-                  <Link href="/findjobs">Find Jobs</Link>
+                  <Link href="/findprojects">Projects</Link>
                 </li>
                 <li className="border-r-2 border-black">
-                  <Link href="/freelancer">Freelancer</Link>
+                  <Link href="/freelancer">Freelancers</Link>
                 </li>
                 <li className="border-r-2 border-black">
                   <Link href="/about">About</Link>
+                </li>
+                <li className="border-r-2 border-black">
+                  <Link href="/blogs">Blog</Link>
                 </li>
                 <div className="dropdown dropdown-hover">
                   <li className="border-r-2 border-black">
@@ -159,12 +169,13 @@ const Navbar = () => {
                     </ul>
                   </li>
                 </div>
+                
               </ul>
             </div>
           </div>
         </div>
         <div className="navbar-end">
-          {userProfile ? (
+          {/* {userProfile ? (
             <>
               <Link
                 href={
@@ -186,6 +197,22 @@ const Navbar = () => {
                 </button>
               </Link>
             </>
+          )} */}
+          {userProfile && (
+            <div className="hidden md:flex gap-6 items-center mx-6">
+              <div className="cursor-pointer">
+                <FaRegBell className="text-xl" />
+              </div>
+              <div className="cursor-pointer">
+                <FaRegMessage className="text-xl" />
+              </div>
+              <div className="cursor-pointer hidden">
+                <FaRegHeart className="text-xl" />
+              </div>
+              <div className="cursor-pointer">
+                <p className="text-[16px] font-medium">Orders</p>
+              </div>
+            </div>
           )}
 
           <div className="hidden md:block">
@@ -215,18 +242,33 @@ const Navbar = () => {
                     </li>
                     <div className="divider my-0"></div>
                     <li className="mb-1">
-                      <Link href="/dashboard" className="text-lg">
-                        Dashboard
-                      </Link>
-                    </li>
-                    <li className="mb-1">
                       <Link href="/post_project" className="text-lg">
                         Post a Project
                       </Link>
                     </li>
+                    {isSeller ? (
+                      <>
+                        <li className="mb-1">
+                          <Link
+                            href="/manage_gigs/overviews"
+                            className="text-lg"
+                          >
+                            Post a Gig
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="mb-1">
+                          <Link href="/postjobs" className="text-lg">
+                            Become a Seller
+                          </Link>
+                        </li>
+                      </>
+                    )}
                     <li className="mb-1">
-                      <Link href="/postjobs" className="text-lg">
-                        Become a Seller
+                      <Link href="/dashboard" className="text-lg">
+                        Dashboard
                       </Link>
                     </li>
                     <li className="">
