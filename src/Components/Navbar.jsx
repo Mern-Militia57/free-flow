@@ -107,6 +107,9 @@ const Navbar = () => {
                 <li className="border-r-2 border-black">
                   <Link href="/about">About</Link>
                 </li>
+                <li className="border-r-2 border-black">
+                  <Link href="/blogs">Blog</Link>
+                </li>
                 <div className="dropdown dropdown-hover">
                   <li className="border-r-2 border-black">
                     <p tabIndex={0}>Solutions</p>
@@ -157,6 +160,7 @@ const Navbar = () => {
                     </ul>
                   </li>
                 </div>
+                
               </ul>
             </div>
           </div>
