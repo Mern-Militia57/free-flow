@@ -71,7 +71,7 @@ const premiumPackage = {
   price: premium_pakages_price
 };
 
-const price = {basicPackage,standardPackage,premiumPackage}
+const Pricing = {basicPackage,standardPackage,premiumPackage}
 const getUserDetailsData = JSON.parse(localStorage.getItem("gigs-profile"));
 
 if( basic_pakages_price < standard_pakages_price && standard_pakages_price < premium_pakages_price   ){
@@ -79,7 +79,7 @@ console.log("OK");
 setwaring(null)
 
   if(getUserDetailsData){
-    getUserDetailsData.price = price
+    getUserDetailsData.Pricing = Pricing
     localStorage.setItem("gigs-profile",JSON.stringify(getUserDetailsData))
     console.log(getUserDetailsData);
     navigationbar.push("/manage_gigs/description")

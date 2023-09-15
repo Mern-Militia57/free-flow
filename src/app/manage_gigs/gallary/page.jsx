@@ -1,7 +1,7 @@
 "use client"
 import GiglineTag from '@/Components/GiglineTag';
 import Image from 'next/image';
-import React, { Suspense, useContext, useState } from 'react'
+import React, { Suspense, useContext, useEffect, useState } from 'react'
 import { FiAlertCircle } from 'react-icons/fi';
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../../Components/LottieAnimation/spinnerjsonFiles.json";
@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import useMagicAxiosBoss from '@/Components/hooks/useMagicAxiosBoss';
 import { AuthContextPro } from '@/Components/AuthProviderFiles/AuthProviderPro';
 import Loading from '../description/loading';
+import useAllUserProfile from '@/Components/hooks/useAllUserProfile';
 
 const Page = () => {
   const { userProfile } = useContext(AuthContextPro);
@@ -22,7 +23,7 @@ const Page = () => {
   const [selectedFile, setSelectedFile] = useState([]);
   const [imageSrc, setImage] = useState([]);
   const [imagepower,setImagePower] = useState([])
-
+  const [userDetails] = useAllUserProfile()
   const handleFileChange = (e) => {
         const submitfiles = e.target.files[0]
         setSelectedFile(submitfiles);
@@ -100,70 +101,81 @@ setImagePower(filter);
 
 
 
+const getValuesofImages =  userDetails?.find(p=>p.email === userProfile?.email)
+const getprofileImages = getValuesofImages
 
-
+const imageURLValues = getprofileImages?.personal_Information?.profile_image 
+const profileName = getprofileImages?.personal_Information?.full_Name
+console.log(profileName);
 
 console.log(imageSrc);
 
-const localStorageVlaue= JSON.parse(localStorage.getItem("gigs-profile"))
-function GallaryPublish (){
-if(imageSrc.length >=1 && imageSrc.length <=3 ){
 
-  localStorageVlaue.Gallary = imageSrc
-  localStorageVlaue.Email = userProfile?.email 
-  localStorage.setItem("gigs-profile", JSON.stringify(localStorageVlaue));
-  Swal.fire({
-    title: 'Confirm Submit',
-    text: 'Are you sure you want to proceed?',
-    icon: 'success',
-   
-    confirmButtonText: 'Yes, proceed', 
 
-    confirmButtonColor: '#3085d6', 
 
-  }).then((result) => {
-    if (result.isConfirmed) {
-      
-      axiosMagic
-      .post(`/gigs_post`, localStorageVlaue)
-      .then((res) => {
-        console.log(res.data);
-        localStorage.removeItem("gigs-profile");
+  function GallaryPublish (){
+    
+  const localStorageVlaue= JSON.parse(localStorage.getItem("gigs-profile"))
+  if(imageSrc.length >=1 && imageSrc.length <=3 ){
+  
+    localStorageVlaue.gallary = imageSrc
+    localStorageVlaue.Email = userProfile?.email 
+    localStorageVlaue.profileImages = imageURLValues;
+    localStorageVlaue.profileName = profileName;
+  
+    localStorage.setItem("gigs-profile", JSON.stringify(localStorageVlaue));
+    Swal.fire({
+      title: 'Confirm Submit',
+      text: 'Are you sure you want to proceed?',
+      icon: 'success',
      
-        new Swal({
-          text: `${userProfile.displayName} Successfully Submit`,
-          icon: "success",
-          
-        }).then((result) => {
-          if (result.isConfirmed) {
-         
+      confirmButtonText: 'Yes, proceed', 
+  
+      confirmButtonColor: '#3085d6', 
+  
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        axiosMagic
+        .post(`/gigs_post`, localStorageVlaue)
+        .then((res) => {
+          console.log(res.data);
+          localStorage.removeItem("gigs-profile");
+       
+          new Swal({
+            text: `${userProfile.displayName} Successfully Submit`,
+            icon: "success",
+            
+          }).then((result) => {
+            if (result.isConfirmed) {
            
-          }
-
-        });
-        navigationbar.push('/')
-      })
-
- }
-  });
-
-}else{
-  new swal({
-    icon: 'warning', // Use the 'warning' icon for a warning dialog
-    title: 'Warning!',
-    text: 'Minimum upload one picture ',
-    confirmButtonText: 'OK',
-    confirmButtonColor: '#FF8C00' // Customize the OK button color
-  });
+             
+            }
+  
+          });
+          navigationbar.push('/')
+        })
+  
+   }
+    });
+  
+  }else{
+    new swal({
+      icon: 'warning', // Use the 'warning' icon for a warning dialog
+      title: 'Warning!',
+      text: 'Minimum upload one picture ',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#FF8C00' // Customize the OK button color
+    });
+  }
+  
+  
 }
 
 
 
 
 
-}
-
-console.log(imageSrc);
 
  
 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.35.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.5.0",
     "chart.js": "^4.4.0",
@@ -29,8 +30,13 @@
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
     "react-query": "^3.39.3",
+<<<<<<< HEAD
+    "react-rating-star-with-type": "^1.2.1",
+=======
     "react-scroll": "^1.8.9",
+>>>>>>> main
     "react-search-autocomplete": "^8.5.2",
+    "react-tabs": "^6.0.2",
     "react-tag-input": "^6.8.1",
     "react-tagsinput": "^3.20.3",
     "sharp": "^0.32.5",

@@ -70,3 +70,36 @@ color: green !important;
   background-color: rgb(255, 255, 255); /* Change 'green' to your desired color */
 }
 
+
+
+.swiper-button-next {
+  opacity: 1;
+  color: rgb(215, 218, 218) !important;
+
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.swiper-button-prev {
+  opacity: 1;
+  color: rgb(215, 218, 218) !important;
+
+
+
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.govreddef:hover .swiper-button-next {
+  color: rgb(96, 247, 247) !important;
+  opacity: 1;
+
+}
+.govreddef:hover .swiper-button-prev {
+  color: rgb(96, 247, 247) !important;
+  opacity: 1;
+
+}
+.swiper-pagination-bullet{
+  background-color: rgb(0, 0, 0) !important;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+}
