@@ -1,7 +1,10 @@
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 import AuthProviderPro from "@/Components/AuthProviderFiles/AuthProviderPro";
 import Provider from "@/Components/Provider/Provider";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,9 @@ export default function RootLayout({ children }) {
       <Provider>
         <body className={inter.className}>
           <AuthProviderPro>
+   
             <div className="outlineSpace select-none">{children}</div>
+      
           </AuthProviderPro>
         </body>
       </Provider>

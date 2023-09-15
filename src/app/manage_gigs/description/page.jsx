@@ -77,7 +77,7 @@ setFaq(getValues)
 function DescriptionAndFaq (){
 
 if(receveFaq.length >= 1 && textLength >= 1){
-  const details = getEditorContent()
+  const details = parsedData
   const faq = receveFaq
   const Details_And_Faq = {details,faq}
     

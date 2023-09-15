@@ -1,5 +1,6 @@
 "use client";
-import AdminProjects from "@/Components/hooks/adminProjects";
+
+import AdminProjects from "../../../../Components/hooks/AdminProjects";
 import { GiCheckMark } from "react-icons/gi";
 import Image from "next/image";
 import React from "react";

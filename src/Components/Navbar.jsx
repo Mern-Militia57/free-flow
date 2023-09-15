@@ -13,11 +13,16 @@ const Navbar = () => {
 
   const [axiosMagic] = useMagicAxiosBoss();
   const [profileAvaible, setCheckProfileAvaible] = useState([]);
+
   useEffect(() => {
     axiosMagic
       .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
-  }, []);
+  }, [axiosMagic,userProfile?.email]);
+
+
+
+
 
   function logoutFiles() {
     logoutProfile();
@@ -163,7 +168,7 @@ const Navbar = () => {
             <>
               <Link
                 href={
-                  profileAvaible
+                  (profileAvaible.length > 0) 
                     ? "http://localhost:3000/manage_gigs/overviews"
                     : "/postjobs"
                 }

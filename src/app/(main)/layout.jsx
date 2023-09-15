@@ -6,8 +6,11 @@ const MainpageLayout = ({ children }) => {
   return (
     <>
       <Navbar />
+      <div className="outlineSpace">
       {children}
+      </div>
       <Footer />
+    
     </>
   );
 };
