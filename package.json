@@ -30,11 +30,8 @@
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
     "react-query": "^3.39.3",
-<<<<<<< HEAD
     "react-rating-star-with-type": "^1.2.1",
-=======
     "react-scroll": "^1.8.9",
->>>>>>> main
     "react-search-autocomplete": "^8.5.2",
     "react-tabs": "^6.0.2",
     "react-tag-input": "^6.8.1",

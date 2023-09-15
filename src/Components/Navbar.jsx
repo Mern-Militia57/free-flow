@@ -21,15 +21,7 @@ const Navbar = () => {
     axiosMagic
       .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
-<<<<<<< HEAD
-  }, [axiosMagic,userProfile?.email]);
-
-
-
-
-=======
   }, [axiosMagic, userProfile?.email]);
->>>>>>> main
 
   function logoutFiles() {
     logoutProfile();
@@ -99,7 +91,7 @@ const Navbar = () => {
             <div>
               <Link
                 href="/"
-                className="btn btn-ghost normal-case hover:bg-transparent text-xl"
+                className="btn btn-ghost normal-case hover:bg-transparent text-md"
               >
                 <Image width={30} src={logo} height={30} alt="thumbnail" />
                 Free Flow
@@ -175,7 +167,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-          {/* {userProfile ? (
+          {userProfile ? (
             <>
               <Link
                 href={
@@ -197,7 +189,7 @@ const Navbar = () => {
                 </button>
               </Link>
             </>
-          )} */}
+          )}
           {userProfile && (
             <div className="hidden md:flex gap-6 items-center mx-6">
               <div className="cursor-pointer">
