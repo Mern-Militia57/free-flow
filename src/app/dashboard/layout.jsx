@@ -66,15 +66,17 @@ const DashboardLayout = ({ children }) => {
               </>
             ) : isSeller ? (
               <>
-                <li>
-                  <a>Overview</a>
+               <li>
+                  <Link href="/dashboard/seller/overview">Overview</Link>
                 </li>
-                <li>
-                  <a>My Gigs</a>
+               <li>
+                  <Link href="/dashboard/seller/myGigs">MyGigs</Link>
                 </li>
-                <li>
-                  <a>My Clients</a>
+               <li>
+                  <Link href="/dashboard/seller/myClients">MyClients</Link>
                 </li>
+               
+                
                 <li>
                   <a>Invoices</a>
                 </li>
@@ -84,12 +86,14 @@ const DashboardLayout = ({ children }) => {
               </>
             ) : (
               <>
-                <li>
-                  <a>Overview</a>
+                 <li>
+                  <Link href="/dashboard/buyer/overview">Overview</Link>
                 </li>
+              
                 <li>
-                  <a>My Jobs</a>
+                  <Link href="/dashboard/buyer/myJobs">MY Jobs</Link>
                 </li>
+               
                 <li>
                   <a>Selected Gigs</a>
                 </li>
