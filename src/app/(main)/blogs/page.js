@@ -72,8 +72,8 @@ const page = () => {
     <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
   }
   return (
-    <div>
-      <div className="lg:flex gap-5 justify-between   m-auto">
+    <div className="container mx-auto">
+      <div className="lg:flex gap-5 mt-8 justify-between   m-auto">
         <div className="bg-slate-100 rounded-lg border lg:w-1/3 h-full  p-4">
           <form className="" onSubmit={handleBlogPost}>
             <label className="label">
