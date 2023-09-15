@@ -5,10 +5,11 @@ import React from "react";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import useAdmin from "@/Components/hooks/useAdmin";
+import useSeller from "@/Components/hooks/useSeller";
 
 const DashboardLayout = ({ children }) => {
   const [isAdmin] = useAdmin();
-  const isSeller = true;
+  const [isSeller] = useSeller();
 
   return (
     <>
@@ -61,7 +62,7 @@ const DashboardLayout = ({ children }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/admin">Feedback & Review</Link>
+                  <Link href="/dashboard/admin/feedback_review">Feedback & Review</Link>
                 </li>
               </>
             ) : isSeller ? (
@@ -80,9 +81,6 @@ const DashboardLayout = ({ children }) => {
                 <li>
                   <a>Invoices</a>
                 </li>
-                <li>
-                  <a>Profile</a>
-                </li>
               </>
             ) : (
               <>
@@ -91,14 +89,17 @@ const DashboardLayout = ({ children }) => {
                 </li>
               
                 <li>
+
                   <Link href="/dashboard/buyer/myJobs">MY Jobs</Link>
+                  <a>Posted Projects</a>
+
                 </li>
                
                 <li>
                   <a>Selected Gigs</a>
                 </li>
                 <li>
-                  <a>Payments</a>
+                  <a>Payments & Invoices</a>
                 </li>
               </>
             )}

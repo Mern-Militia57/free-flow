@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Lottie from "lottie-react";
-import spinnerfun from "@/Components/LottieAnimation/spinnerjsonFiles.json";
+import spinnerfun from "../../../../Components/LottieAnimation/spinnerjsonFiles.json";
 
 export default function Loading() {
   return (

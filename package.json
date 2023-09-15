@@ -33,6 +33,7 @@
     "react-search-autocomplete": "^8.5.2",
     "react-tag-input": "^6.8.1",
     "react-tagsinput": "^3.20.3",
+    "sharp": "^0.32.5",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.27",
     "swiper": "^10.1.0",

@@ -11,7 +11,8 @@ const Criteria = () => {
         {criterias.map(({ id, title, total }) => (
           <div
             key={id}
-            className="py-10 text-center border-gray-100 border-2 shadow-md hover:shadow-xl"
+            className="py-10 text-center border-gray-100 border-2 shadow-md hover:shadow-xl
+            transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-150"
           >
             <h1 className="font-semibold pb-2">{title}</h1>
             <p>{total}</p>

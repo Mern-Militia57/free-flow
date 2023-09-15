@@ -1,9 +1,9 @@
 import React from "react";
-import employer from "../../../../assets/employer.png";
-import team from "../../../../assets/team-management.png";
-import earn from "../../../../assets/earn-money.png";
+import employer from "@/assets/employer.png";
+import team from "@/assets/team-management.png";
+import earn from "@/assets/earn-money.png";
 import Image from "next/image";
-import price from "../../../../assets/low-cost.png";
+import price from "@/assets/low-cost.png";
 
 import { GrServices, GrUserManager } from "react-icons/gr";
 import { CgProfile, IconName } from "react-icons/cg";

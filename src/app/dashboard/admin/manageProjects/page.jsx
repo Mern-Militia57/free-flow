@@ -18,7 +18,7 @@ const ManageProjectsPage = () => {
         console.log(data);
         if (data.modifiedCount) {
           refetch();
-          new Swal.fire("Approved!", "Project is Approved", "success");
+          Swal.fire("Approved!", "Project is Approved", "success");
         }
       });
   };
@@ -30,7 +30,7 @@ const ManageProjectsPage = () => {
         console.log(data);
         if (data.modifiedCount) {
           refetch();
-          new Swal.fire("Denied!", "Project is Denied", "error");
+          Swal.fire("Denied!", "Project is Denied", "error");
         }
       });
   };
@@ -60,7 +60,7 @@ const ManageProjectsPage = () => {
   };
   return (
     <>
-      <div className="overflow-x-auto scroll-m-0 md:max-w-screen-lg max-h-screen bg-base-100 px-5 ml-5 py-5">
+      <div className="overflow-x-auto scroll-m-0 md:max-w-screen-lg h-[582px] bg-base-100 ml-5 py-5">
         <h1 className="text-center italic py-4 text-3xl font-bold">
           Manage Projects
         </h1>
@@ -73,6 +73,7 @@ const ManageProjectsPage = () => {
               <th>Project Title</th>
               <th>Project Category</th>
               <th>Project Sub-Category</th>
+              <th>Budget Type</th>
               <th>Currency</th>
               <th>Budget</th>
               <th>Visibility</th>
@@ -102,6 +103,7 @@ const ManageProjectsPage = () => {
                 <td>{item.title}</td>
                 <td>{item.category}</td>
                 <td>{item.subCategory}</td>
+                <td>{item.budgetType}</td>
                 <td>{item.currency}</td>
                 <td>{item.budget}</td>
                 <td>
