@@ -3,7 +3,8 @@ import React from "react";
 import Lottie from "lottie-react";
 import spinnerfun from "../../../../Components/LottieAnimation/spinnerjsonFiles.json";
 
-export default function Loading() {
+function Loading() {
+  
   return (
     <>
       <Lottie
@@ -14,3 +15,5 @@ export default function Loading() {
     </>
   );
 }
+
+export default Loading;

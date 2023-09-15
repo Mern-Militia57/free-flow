@@ -1,7 +1,7 @@
 "use client";
 import useProjects from "@/Components/hooks/useProjects";
 import React, { useEffect, useState } from "react";
-import Loading from "./Loading";
+import Loading from "./loading";
 import Image from "next/image";
 
 const ProjectDetailsPage = ({ params }) => {
