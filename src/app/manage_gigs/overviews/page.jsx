@@ -1,5 +1,6 @@
 "use client";
 import GiglineTag from "@/Components/GiglineTag";
+import useAllUserProfile from "@/Components/hooks/useAllUserProfile";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
@@ -10,6 +11,10 @@ const Overviews = () => {
   const navigationbar = useRouter();
   const [tags, setTags] = useState([]);
   const [warns, setWarning] = useState([]);
+ 
+
+
+
 
   const handleChange = (newTags) => {
     console.log(newTags);
@@ -22,7 +27,7 @@ const Overviews = () => {
     }
   };
 
-  const [categories, setcategories] = useState([
+  const categories = [
     {
       name: "Graphic Design",
       subcategories: [
@@ -89,9 +94,9 @@ const Overviews = () => {
         "Fashion Photography",
       ],
     },
-  ]);
+  ]
 
-  const [subcategoriesFiles, setSubcategories] = useState([
+const [subcategoriesFiles, setSubcategories] = useState([
     "Logo Design",
     "Illustration",
     "Print Design",
@@ -119,7 +124,9 @@ const Overviews = () => {
   }
 
   function seleteSubcategories(e) {
-    const values = e.target.value;
+ 
+       const values = e.target.value
+       console.log(values);
     const checkTheValues = categories?.find((p) => p.name === values);
     console.log(checkTheValues);
     setSubcategories(checkTheValues?.subcategories);
@@ -127,7 +134,7 @@ const Overviews = () => {
 
   return (
     <>
-      <GiglineTag />
+      <GiglineTag gives0={true}/>
 
       <form
         onSubmit={OverViews}
@@ -174,7 +181,7 @@ const Overviews = () => {
             >
               {categories?.map((p, index) => (
                 <>
-                  <option value={p} key={index} className="">
+                  <option value={p.name} key={index} className="">
                     {p.name}
                   </option>
                 </>

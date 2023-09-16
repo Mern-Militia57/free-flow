@@ -1,6 +1,8 @@
 "use client";
-import useProjects from "@/Components/hooks/useProjects";
-import criterias from "@/data/criterias";
+
+import useProjects from "../../../Components/hooks/useProjects";
+
+import criterias from "../../../data/criterias";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -11,7 +13,7 @@ import { FiChevronDown } from "react-icons/fi";
 const ProjectsCard = () => {
   const [category, setCategory] = useState("Any Category");
   const [projects, loading, refetch] = useProjects();
-  // console.log(projects);
+
   const approvedProjects = projects.filter(
     (project) => project.status === "approved"
   );

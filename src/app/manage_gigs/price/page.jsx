@@ -1,7 +1,8 @@
 "use client"
 import GiglineTag from '@/Components/GiglineTag';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
+import Loading from '../overviews/loading';
 
 const Price = () => {
   const navigationbar = useRouter()
@@ -70,7 +71,7 @@ const premiumPackage = {
   price: premium_pakages_price
 };
 
-const price = {basicPackage,standardPackage,premiumPackage}
+const Pricing = {basicPackage,standardPackage,premiumPackage}
 const getUserDetailsData = JSON.parse(localStorage.getItem("gigs-profile"));
 
 if( basic_pakages_price < standard_pakages_price && standard_pakages_price < premium_pakages_price   ){
@@ -78,7 +79,7 @@ console.log("OK");
 setwaring(null)
 
   if(getUserDetailsData){
-    getUserDetailsData.price = price
+    getUserDetailsData.Pricing = Pricing
     localStorage.setItem("gigs-profile",JSON.stringify(getUserDetailsData))
     console.log(getUserDetailsData);
     navigationbar.push("/manage_gigs/description")
@@ -113,8 +114,9 @@ setwaring(null)
 
 
     return (
+      <Suspense fallback={Loading}>
         <>
-         <GiglineTag />
+     <GiglineTag gives0={true} gives1={true}/>
         <div>
         <form onSubmit={PriceView} className="px-10 sm:px-0 my-16 sm:w-10/12 mx-auto">
   <div style={{ alignItems: "center" }} className="sm:flex justify-center mt-5 border">
@@ -266,6 +268,7 @@ setwaring(null)
 
         </div>
         </>
+        </Suspense>
     );
 };
 

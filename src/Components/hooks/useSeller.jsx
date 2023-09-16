@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useMagicAxiosBoss from "./useMagicAxiosBoss";
 import { useQuery } from "react-query";
-import { AuthContextPro } from "../AuthProviderFiles/AuthProviderPro";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 
 const useSeller = () => {
   const { userProfile, loader } = useContext(AuthContextPro);

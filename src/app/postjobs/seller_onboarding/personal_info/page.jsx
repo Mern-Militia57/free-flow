@@ -6,15 +6,15 @@ import { useRouter } from "next/navigation";
 import React, {
   Suspense,
   useContext,
-  
   useState,
 } from "react";
 import { FaStarOfLife } from "react-icons/fa6";
 import Loading from "../professional_info/loading";
+import countries from "@/data/country";
 
 const PersonalInfo = () => {
-  const { userProfile } = useContext(AuthContextPro);
-  console.log(userProfile?.email, userProfile);
+
+
   const [selectedFile, setSelectedFile] = useState(null);
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -59,23 +59,35 @@ const PersonalInfo = () => {
     })
       .then((res) => res.json())
       .then((getdata) => {
+        const currentDate = new Date();
+
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+         const member_since = formattedDate
         const profile_image = getdata.data.display_url;
-        const email_address = userProfile?.email;
+        const post_Code = e.target.postcode.value;
+        const address = e.target.address.value;
         const full_Name = e.target.firstname.value;
         const phone_Number = e.target.phone.value;
         const last_Name = e.target.lastname.value;
-        const Display_Name = e.target.displayname.value;
+        const display_Name = e.target.displayname.value;
         const Language = e.target.option.value;
-        const Description = e.target.description.value;
+        const country = e.target.countries.value;
+        const description = e.target.description.value;
         const personal_Information = {
-          email_address,
+          post_Code,
+          address,
+          country,
           profile_image,
           phone_Number,
           full_Name,
           last_Name,
-          Display_Name,
-          Description,
+          display_Name,
+          description,
           Language,
+          member_since
         };
         const proinformation = { personal_Information };
 
@@ -218,6 +230,7 @@ const PersonalInfo = () => {
 
               <div className="sm:flex sm:w-8/12">
                 <input
+                placeholder="Your Phone Number"
                   required
                   name="phone"
                   type="tel"
@@ -225,8 +238,82 @@ const PersonalInfo = () => {
                 />
               </div>
             </div>
+            {/* --------------------------------- */}
+            <div
+              style={{ alignItems: "center" }}
+              className="sm:flex justify-center my-5 "
+            >
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                Address
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className="sm:flex sm:w-8/12">
+                <input
+                placeholder="Your Address"
+                  required
+                  name="address"
+                  type="text"
+                  className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
+                />
+              </div>
+            </div>
+            {/* -------------------------- */}
+            <div
+              style={{ alignItems: "center" }}
+              className="sm:flex justify-center my-5 "
+            >
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                Post Code
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className="sm:flex sm:w-8/12">
+                <input
+                placeholder="Post Code"
+                  required
+                  name="postcode"
+                  type="number"
+                 
+                  className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
+                />
+              </div>
+            </div>
 
             {/* --------------------------------------- */}
+
+
+            <div
+              style={{ alignItems: "center" }}
+              className="sm:flex justify-center my-5 "
+            >
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                  Country 
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className="sm:flex sm:w-8/12">
+              <select
+                  name="countries"
+                  className="border overflow-scroll border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
+                >
+                  {
+                    countries?.map((p,index)=><option key={index}>{p}</option>)
+                  }
+                </select>
+              </div>
+            </div>
+
+
+
+
+            {/* -------------------------------------- */}
 
             <div
               style={{ alignItems: "center" }}

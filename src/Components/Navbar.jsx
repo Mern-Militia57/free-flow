@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import logo from "../assets/icon.png";
+import logo from "@/assets/icon.png";
 import Link from "next/link";
-import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
-import useMagicAxiosBoss from "./hooks/useMagicAxiosBoss";
+import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import { FaRegBell, FaRegHeart, FaRegMessage } from "react-icons/fa6";
-import useSeller from "./hooks/useSeller";
+import useSeller from "@/Components/hooks/useSeller";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
@@ -16,11 +16,12 @@ const Navbar = () => {
 
   const [axiosMagic] = useMagicAxiosBoss();
   const [profileAvaible, setCheckProfileAvaible] = useState([]);
+
   useEffect(() => {
     axiosMagic
       .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
-  }, [userProfile?.email, axiosMagic]);
+  }, [axiosMagic, userProfile?.email]);
 
   function logoutFiles() {
     logoutProfile();
@@ -90,7 +91,7 @@ const Navbar = () => {
             <div>
               <Link
                 href="/"
-                className="btn btn-ghost normal-case hover:bg-transparent text-xl"
+                className="btn btn-ghost normal-case hover:bg-transparent text-md"
               >
                 <Image width={30} src={logo} height={30} alt="thumbnail" />
                 Free Flow
@@ -106,6 +107,9 @@ const Navbar = () => {
                 </li>
                 <li className="border-r-2 border-black">
                   <Link href="/about">About</Link>
+                </li>
+                <li className="border-r-2 border-black">
+                  <Link href="/blogs">Blog</Link>
                 </li>
                 <div className="dropdown dropdown-hover">
                   <li className="border-r-2 border-black">
@@ -157,16 +161,17 @@ const Navbar = () => {
                     </ul>
                   </li>
                 </div>
+                
               </ul>
             </div>
           </div>
         </div>
         <div className="navbar-end">
-          {/* {userProfile ? (
+          {userProfile ? (
             <>
               <Link
                 href={
-                  profileAvaible
+                  (profileAvaible.length > 0) 
                     ? "http://localhost:3000/manage_gigs/overviews"
                     : "/postjobs"
                 }
@@ -184,7 +189,7 @@ const Navbar = () => {
                 </button>
               </Link>
             </>
-          )} */}
+          )}
           {userProfile && (
             <div className="hidden md:flex gap-6 items-center mx-6">
               <div className="cursor-pointer">
