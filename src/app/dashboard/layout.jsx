@@ -17,6 +17,7 @@ const DashboardLayout = ({ children }) => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Page content here */}
+
           <div className="my-5">{children}</div>
           <label
             htmlFor="my-drawer-2"
@@ -74,10 +75,23 @@ const DashboardLayout = ({ children }) => {
                 <li>
                   <Link href="/dashboard/seller/overview">Overview</Link>
                 </li>
+<<<<<<< HEAD
+               <li>
+                  <Link href="/dashboard/seller/overview">Order</Link>
+                </li>
+               <li>
+                  <Link href="/dashboard/seller/myGigs">MyGigs</Link>
+                </li>
+               <li>
+                  <Link href="/dashboard/seller/myGigs">Warning</Link>
+                </li>
+               <li>
+=======
                 <li>
                   <Link href="/dashboard/seller/myGigs">MyGigs</Link>
                 </li>
                 <li>
+>>>>>>> origin
                   <Link href="/dashboard/seller/myClients">MyClients</Link>
                 </li>
                 <li>

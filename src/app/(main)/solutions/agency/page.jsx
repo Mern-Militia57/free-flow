@@ -1,3 +1,4 @@
+
 import React from "react";
 import employer from "@/assets/employer.png";
 import team from "@/assets/team-management.png";
@@ -15,7 +16,24 @@ import { FaFileInvoiceDollar } from "react-icons/fa6";
 import { BsFillPersonFill, BsHourglassSplit } from "react-icons/bs";
 import { BiNetworkChart, BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
 
+
 const AgencyPage = () => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="container mx-auto">
       <div className="bg-gradient-to-br   text-white py-32 p-6 from-[#363E51] to-[#363E51]">
