@@ -47,7 +47,9 @@ const DashboardLayout = ({ children }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/admin/manageProjects">All Projects</Link>
+                  <Link href="/dashboard/admin/manageProjects">
+                    All Projects
+                  </Link>
                 </li>
                 <li>
                   <Link href="/dashboard/admin/manageGigs">Manage Gigs</Link>
@@ -63,14 +65,17 @@ const DashboardLayout = ({ children }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/admin/feedback_review">Feedback & Review</Link>
+                  <Link href="/dashboard/admin/feedback_review">
+                    Feedback & Review
+                  </Link>
                 </li>
               </>
             ) : isSeller ? (
               <>
-               <li>
+                <li>
                   <Link href="/dashboard/seller/overview">Overview</Link>
                 </li>
+<<<<<<< HEAD
                <li>
                   <Link href="/dashboard/seller/overview">Order</Link>
                 </li>
@@ -81,27 +86,27 @@ const DashboardLayout = ({ children }) => {
                   <Link href="/dashboard/seller/myGigs">Warning</Link>
                 </li>
                <li>
+=======
+                <li>
+                  <Link href="/dashboard/seller/myGigs">MyGigs</Link>
+                </li>
+                <li>
+>>>>>>> origin
                   <Link href="/dashboard/seller/myClients">MyClients</Link>
                 </li>
-               
-                
                 <li>
                   <a>Invoices</a>
                 </li>
               </>
             ) : (
               <>
-                 <li>
+                <li>
                   <Link href="/dashboard/buyer/overview">Overview</Link>
                 </li>
-              
                 <li>
-
                   <Link href="/dashboard/buyer/myJobs">MY Jobs</Link>
                   <a>Posted Projects</a>
-
                 </li>
-               
                 <li>
                   <a>Selected Gigs</a>
                 </li>
