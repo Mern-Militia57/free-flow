@@ -23,8 +23,8 @@ const ProjectDetailsPage = ({ params }) => {
   return (
     <>
       {SingleProject ? (
-        <main className="bg-base-200 py-10">
-          <div className="p-5 md:p-8 container mx-auto bg-white">
+        <main className="bg-base-200 pt-12 pb-20">
+          <div className="p-5 md:p-10 container mx-auto bg-white">
             <div className="flex justify-between">
               <div className="border-b-2 mb-2 pb-4">
                 <h2 className="text-2xl md:text-4xl font-semibold">

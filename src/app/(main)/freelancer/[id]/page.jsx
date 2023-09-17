@@ -35,14 +35,16 @@ import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 
 const Page = () => {
-  const { id } = useParams();
   const [axiosMagic] = useMagicAxiosBoss();
-  // const [usergigs] = useAllGigsPost()
-  // const [userDetails]= useAllUserProfile()
+  const [usergigs] = useAllGigsPost()
+  const [userDetails]= useAllUserProfile()
   const { userProfile } = useContext(AuthContextPro);
-
+  const { id } = useParams();
+  if(usergigs.length <= 0){
+    return <h1>Loading....</h1>
+  }
   const findQuest = usergigs?.find((p) => p._id === id);
-
+  console.log(findQuest);
   const userFindData = userDetails?.find((p) => p?.Email === findQuest.Email);
 
   const { personal_Information, professional } = userFindData;
@@ -80,7 +82,7 @@ const Page = () => {
     };
     console.log(values);
     axiosMagic
-      .post("/buyerorder", values)
+      .post("/buerorder", values)
       .then((res) => window.location.replace(res.data.url));
   }
 

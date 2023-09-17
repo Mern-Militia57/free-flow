@@ -1,6 +1,5 @@
 import { useQuery } from "react-query";
 
-
 const useBlogs = () => {
   const {
     data: blogs = [],
