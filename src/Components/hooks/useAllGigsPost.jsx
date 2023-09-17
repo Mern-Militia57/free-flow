@@ -1,6 +1,8 @@
 
-import useMagicAxiosBoss from './useMagicAxiosBoss';
+
 import { useQuery } from 'react-query';
+import useMagicAxiosBoss from './useMagicAxiosBoss';
+
 
 
 const useAllGigsPost = () => {

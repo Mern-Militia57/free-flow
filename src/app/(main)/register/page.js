@@ -1,6 +1,7 @@
 "use client";
 
 import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
+
 import { updateProfile } from "firebase/auth";
 import Link from "next/link";
 import { useContext } from "react";
@@ -8,6 +9,16 @@ import { useForm } from "react-hook-form";
 import swal from "sweetalert";
 
 const RegistrationPage = () => {
+
+
+
+
+
+
+
+
+
+
   const { createRegister, userProfile } = useContext(AuthContextPro);
   const {
     reset,

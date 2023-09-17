@@ -8,6 +8,7 @@ const nextConfig = {
       "encrypted-tbn0.gstatic.com",
       "plus.unsplash.com",
       "images.unsplash.com",
+      
       "www.nbmchealth.com",
     ],
   },

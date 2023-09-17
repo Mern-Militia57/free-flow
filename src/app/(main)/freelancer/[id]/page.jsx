@@ -1,66 +1,74 @@
 "use client"
-import useAllGigsPost from '@/Components/hooks/useAllGigsPost';
+
 import { useParams } from 'next/navigation';
 import ReactStars from 'react-rating-star-with-type'
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-// Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
- import { Editor, EditorState, ContentState, convertToRaw, convertFromRaw } from 'draft-js';
+ import { Editor, EditorState, convertFromRaw } from 'draft-js';
  import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'; // Styling for the editor
-import { MdDescription } from 'react-icons/md';
-import { FaQuora } from 'react-icons/fa6';
+import { MdDeliveryDining, MdDescription, MdOutlineDescription } from 'react-icons/md';
 import { FcFaq } from 'react-icons/fc';
-import useAllUserProfile from '@/Components/hooks/useAllUserProfile';
-import userDetails from '@/app/manage_gigs/overviews/profileuser';
-import usergigs from "@/app/manage_gigs/overviews/lala"
-import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+
+// import userDetails from '@/app/manage_gigs/overviews/profileuser';
+// import usergigs from "@/app/manage_gigs/overviews/lala"
+
 import { BiRightArrow } from 'react-icons/bi';
 import { AuthContextPro } from '@/Components/AuthProviderFiles/AuthProviderPro';
 import useMagicAxiosBoss from '@/Components/hooks/useMagicAxiosBoss';
+import useAllGigsPost from '@/Components/hooks/useAllGigsPost';
+import useAllUserProfile from '@/Components/hooks/useAllUserProfile';
+import Lottie from 'lottie-react';
+import spinnerfun from "../../../../Components/LottieAnimation/spinnerjsonFiles.json";
+import { ImLoop2 } from 'react-icons/im';
 
 
+const DetailsFreelancer = () => {
+  const [topPosition, setTopPosition] = useState(10); 
 
-const Page = () => {
+  const [axiosMagic] = useMagicAxiosBoss()
+  const [usergigs,refetch] = useAllGigsPost()
+  const [ userDetails ] = useAllUserProfile()
+  const {id} = useParams()
+  const {userProfile} = useContext(AuthContextPro)
 
-    const {id} = useParams()
-    const [axiosMagic] = useMagicAxiosBoss()
-    // const [usergigs] = useAllGigsPost()
-    // const [userDetails]= useAllUserProfile()
-const {userProfile} = useContext(AuthContextPro)
 
+  if (usergigs.length <= 0 ) {
+  return <>
+  <Lottie
+        className="w-5/12 mx-auto"
+        animationData={spinnerfun}
+        loop={true}
+      />
+  
+  </>
+  }
+    
 
 
 
 const findQuest = usergigs?.find(p=>p._id === id)
-
 const userFindData = userDetails?.find(p=>p?.Email === findQuest.Email)
 
 
 const {personal_Information,professional} = userFindData
 
+console.log(personal_Information);
 
 
+const { profileImages,profileName,order,review,Email,gallary,OverViewData,Pricing,
+Details_And_Faq} = findQuest
 
-const { 
-    profileImages,
-    profileName,
-    order,
-    review,
-    Email,
-    gallary,
-    OverViewData,
-    Pricing,
-    Details_And_Faq} = findQuest
 
 //  review rating avarge -----------------
     const reviewsRatingRate = review?.length
@@ -83,6 +91,36 @@ console.log(values);
 axiosMagic.post('/buerorder',values)
 .then(res=>window.location.replace(res.data.url))
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+const handleScroll = () => {
+  const scrollTop = window.scrollY;
+
+  // Adjust the top position based on the scroll position
+  if (scrollTop <= 100) {
+    setTopPosition(10); // Within the range
+  } else {
+    setTopPosition(scrollTop - 90); // Outside the range
+  }
+};
+
+// Attach the scroll event listener
+window.addEventListener('scroll', handleScroll);
+
+
+
+console.log(topPosition);
 
 
 
@@ -294,10 +332,10 @@ axiosMagic.post('/buerorder',values)
 </div>
 {/* -------------------- tabs part--------- */}
 
-<div className='sm:w-4/12  sm:mx-5 relative'>
+<div className='relative  mt-2 sm:mx-5  '>
 
 
-<Tabs className="p-2   border border-blue-400">
+<Tabs  className={`p-5  sm:w-[25rem] ${(topPosition >= 1562)?"static":"fixed" }  shadow-xl shadow-stone-300 border border-gray-300 rounded-xl`}>
     <TabList>
       <Tab>Basic</Tab>
       <Tab>Standard</Tab>
@@ -309,12 +347,21 @@ axiosMagic.post('/buerorder',values)
 <TabPanel className="">
 
 <p className=' p-3  text-2xl text-gray-800 text-center  '>{Pricing.basicPackage.name}</p>
-<p className=''>{Pricing.basicPackage.details}</p>
+<p style={{alignItems:"center"}} className='flex'>
+  <MdOutlineDescription  className='me-2 text-xl'/>
+  
+  {Pricing.basicPackage.details}</p>
 
-<p className='font-bold mt-3 '>Rivision: {Pricing.basicPackage.revision}</p>
-<p className='font-bold mt-3  mb-10'>Delivery: {Pricing.basicPackage.deliveryTime}</p>
+<p style={{alignItems:"center"}} className='font-bold mt-3 flex'>
+  <ImLoop2 className='me-2 '/>
+  
+  Rivision: {Pricing.basicPackage.revision}</p>
+<p style={{alignItems:"center"}} className='font-bold mt-3  mb-10 flex'>
+  
+  <MdDeliveryDining className='me-2 text-xl' />
+  Delivery: {Pricing.basicPackage.deliveryTime}</p>
 
-<p className='bg-[#8843F2] sm:w-7/12 mx-auto rounded-md  text-2xl  p-2 font-semibold  text-white text-center mt-5'>Price:{Pricing.basicPackage.price}$</p>
+<p className='bg-[#8843F2] sm:w-7/12 mx-auto rounded-md  text-2xl  p-2 font-semibold  text-white text-center mt-5'>Price: {Pricing.basicPackage.price}$</p>
 <button onClick={()=>onClickOrder(Pricing.basicPackage)} className='btn mt-5 bg-black text-white w-full'>Order</button>
 </TabPanel>
 
@@ -322,25 +369,34 @@ axiosMagic.post('/buerorder',values)
 
 
 
-<TabPanel className="   ">
+<TabPanel className="">
 <p className=' p-3  text-2xl text-gray-800 text-center  '>{Pricing.standardPackage.name}</p>
-<p className=''>{Pricing.standardPackage.details}</p>
+<p style={{alignItems:"center"}} className='flex'>
+  <MdOutlineDescription  className='me-2 text-xl'/>{Pricing.standardPackage.details}</p>
 
-<p className='font-bold mt-3'>Rivision: {Pricing.standardPackage.revision}</p>
-<p className='font-bold mt-3 mb-10'>Delivery: {Pricing.standardPackage.deliveryTime}</p>
+  <p style={{alignItems:"center"}} className='font-bold mt-3 flex'>
+  <ImLoop2 className='me-2 '/>Rivision: {Pricing.standardPackage.revision}</p>
+  <p style={{alignItems:"center"}} className='font-bold mt-3  mb-10 flex'>
+  
+  <MdDeliveryDining className='me-2 text-xl' />Delivery: {Pricing.standardPackage.deliveryTime}</p>
 
-<p className='bg-[#8843F2] sm:w-7/12 mx-auto rounded-md  text-2xl  p-2 font-semibold  text-white text-center mt-5'>Price:{Pricing.standardPackage.price}$</p>
+<p className='bg-[#FF6969] sm:w-7/12 mx-auto rounded-md  text-2xl  p-2 font-semibold  text-white text-center mt-5'>Price: {Pricing.standardPackage.price}$</p>
 <button onClick={()=>onClickOrder(Pricing.standardPackage)} className='btn mt-5 bg-black text-white w-full'>Order</button>
 </TabPanel>
 
-<TabPanel className="border ">
+
+
+<TabPanel className=" ">
 <p className=' p-3  text-2xl text-gray-800 text-center  '>{Pricing.premiumPackage.name}</p>
-<p className=''>{Pricing.premiumPackage.details}</p>
+<p style={{alignItems:"center"}} className='flex'>
+  <MdOutlineDescription  className='me-2 text-xl'/>{Pricing.premiumPackage.details}</p>
+  <p style={{alignItems:"center"}} className='font-bold mt-3 flex'>
+  <ImLoop2 className='me-2 '/>Rivision: {Pricing.premiumPackage.revision}</p>
+  <p style={{alignItems:"center"}} className='font-bold mt-3  mb-10 flex'>
+  
+  <MdDeliveryDining className='me-2 text-xl' />Delivery: {Pricing.premiumPackage.deliveryTime}</p>
 
-<p className='font-bold mt-3'>Rivision: {Pricing.premiumPackage.revision}</p>
-<p className='font-bold mt-3 mb-10'>Delivery: {Pricing.premiumPackage.deliveryTime}</p>
-
-<p className='bg-[#8843F2] sm:w-7/12 mx-auto rounded-md  text-2xl  p-2 font-semibold  text-white text-center mt-5'>Price:{Pricing.premiumPackage.price}$</p>
+<p className='bg-[#FF9B50] sm:w-7/12 mx-auto rounded-md  text-2xl  p-2 font-semibold  text-white text-center mt-5'>Price: {Pricing.premiumPackage.price}$</p>
 <button onClick={()=>onClickOrder(Pricing.premiumPackage)} className='btn mt-5 bg-black text-white w-full'>Order</button>
 
 
@@ -366,6 +422,8 @@ axiosMagic.post('/buerorder',values)
 
 
 </div>
+
+
 </div>
 
 
@@ -373,4 +431,4 @@ axiosMagic.post('/buerorder',values)
     );
 };
 
-export default Page;
+export default DetailsFreelancer;

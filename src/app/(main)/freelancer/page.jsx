@@ -23,9 +23,9 @@ const FreelancersPage = () => {
 
 
 const [usergigs,refetch] = useAllGigsPost()
+const [ userDetails ] = useAllUserProfile()
 
-
-
+console.log(usergigs,userDetails);
 
 
   return (
@@ -65,7 +65,7 @@ const ratingData = Math.floor(count/reviewsRatingRate)
 
   return (
     <>
-    <div  className=" hover:shadow-2xl hover:shadow-teal-200 justify-between flex flex-col  w-full  p-1 govreddef">
+    <div  className="border border-gray-400 rounded-md hover:shadow-2xl hover:shadow-teal-200 transition-all duration-300 justify-between flex flex-col  w-full  p-1 govreddef">
 
       <div className="">
         <Swiper
@@ -88,7 +88,7 @@ const ratingData = Math.floor(count/reviewsRatingRate)
       </div>
 
 
-      <div style={{ alignItems: "center" }} className="flex p-1 mt-1  ">
+      <div style={{ alignItems: "center" }} className="flex p-2 mt-1  ">
         <Image className="rounded-full w-[40px] h-[40px]" src={profileImages} width={200} height={100} alt="" />
         <div>
           <p className="mx-2 font-semibold text-sm text-gray-500">{profileName}</p>
@@ -102,16 +102,16 @@ const ratingData = Math.floor(count/reviewsRatingRate)
 
   
       <Link href={`/freelancer/${_id}`}>
-      <p className="text-gray-600 cursor-pointer hover:underline font-semibold  text-xl px-1 py-1">{OverViewData.gigs_title}</p>
+      <p className="text-gray-600 cursor-pointer hover:underline font-semibold  text-md px-2 py-1">{OverViewData.gigs_title}</p>
       </Link>
     
 
 
-      <div  className="mt-5  "> 
+      <div  className="mt-5  px-2"> 
           <p className="font-semibold text-sm text-gray-600 mx-1">Completed : {order} Jobs</p>
         </div>
 
-        <div style={{alignItems:"center"}} className="mx-1 font-bold flex mb-5"> 
+        <div style={{alignItems:"center"}} className="mx-1 px-2  font-bold flex mb-5"> 
         <ImPriceTag className="me-1 text-sm"/>
         Starting From: 
           {Pricing?.basicPackage?.price}$
