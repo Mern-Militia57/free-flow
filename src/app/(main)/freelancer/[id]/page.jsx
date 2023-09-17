@@ -43,7 +43,7 @@ const DetailsFreelancer = () => {
   const {userProfile} = useContext(AuthContextPro)
 
 
-  if (usergigs.length <= 0 ) {
+  if (usergigs.length <= 0) {
   return <>
   <Lottie
         className="w-5/12 mx-auto"
