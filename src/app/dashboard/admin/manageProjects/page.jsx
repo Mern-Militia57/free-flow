@@ -61,11 +61,11 @@ const ManageProjectsPage = () => {
   };
   return (
     <>
-      <div className="overflow-x-auto scroll-m-0 md:max-w-screen-lg h-[582px] bg-base-100 ml-5 py-5">
+      <div className="overflow-x-auto scroll-m-0 md:max-w-screen-lg bg-base-100 ml-5 py-5">
         <h1 className="text-center italic py-4 text-3xl font-bold">
           Manage Projects
         </h1>
-        <table className="table w-full">
+        <table className="table table-xs w-full">
           <thead className="text-black text-[16px]">
             <tr>
               <th>#</th>
