@@ -1,13 +1,9 @@
-
-"use client"
+"use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import AuthProviderPro from "@/Components/AuthProviderFiles/AuthProviderPro";
 import Provider from "@/Components/Provider/Provider";
 import { QueryClient, QueryClientProvider } from "react-query";
-
-
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,20 +14,17 @@ export const metadata = {
 
 const queryClient = new QueryClient();
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
-            <QueryClientProvider client={queryClient}>
-      <Provider>
-        <body className={inter.className}>
-          <AuthProviderPro>
-    
-            <div className="outlineSpace select-none">{children}</div>
-
-          </AuthProviderPro>
-        </body>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider>
+          <body className={inter.className}>
+            <AuthProviderPro>
+              <div className="outlineSpace select-none">{children}</div>
+            </AuthProviderPro>
+          </body>
+        </Provider>
       </QueryClientProvider>
     </html>
   );
