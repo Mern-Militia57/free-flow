@@ -24,7 +24,7 @@ const ProjectsCard = () => {
   return (
     <div>
       <div className="container mx-auto text-center mb-7">
-        <div>
+        {/* <div>
           <div className="dropdown">
             <button tabIndex={0} className="btn bg-base-200">
               <FaListUl />
@@ -52,7 +52,7 @@ const ProjectsCard = () => {
           <button className="btn bg-base-200">
             <FaSearch />
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="grid grid-cols-1 my-10 px-2 md:px-10 container mx-auto gap-5">
         {approvedProjects.map((approvedProject) => (

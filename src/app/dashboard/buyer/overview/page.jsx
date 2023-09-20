@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Header from '../components/Header';
 import TopCards from '../components/TopCards';
@@ -10,7 +11,7 @@ const page = () => {
             <Header></Header>
             <TopCards></TopCards>
             <div className='p-4 grid md:grid-cols-3 grid-cols-1 gap-4'>
-            <BarChart></BarChart>
+            {/* <BarChart></BarChart> */}
             <RecentOrders></RecentOrders>
             </div>
         </div>

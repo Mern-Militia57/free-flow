@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
+import Swal from "sweetalert2";
 
 const ProjectDetailsPage = ({ params }) => {
   const id = params.id;
@@ -41,8 +42,15 @@ const ProjectDetailsPage = ({ params }) => {
         proposal_details: data.proposal,
       });
       const result = res.data;
-      console.log(result);
-      reset();
+      if (result.insertedId) {
+        new Swal({
+          title: "Project Proposal Send Successfully",
+          icon: "success",
+        });
+        reset();
+      } else {
+        console.error("Invalid server response:", result);
+      }
     } catch (error) {
       console.error("Error sending proposal:", error);
     }

@@ -160,13 +160,13 @@ const LoginPage = () => {
             <FcGoogle className="text-xl" />
             Sign In With Google
           </button>
-          <button
+          {/* <button
             onClick={faceboookdopen}
             className="btn bg-base-100 border-black  my-2 sm:my-0 w-full lg:w-80 text-black"
           >
             <BiLogoFacebookCircle className="text-xl text-blue-500" />
             Sign In With Facebook
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

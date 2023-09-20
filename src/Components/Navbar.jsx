@@ -8,9 +8,11 @@ import { useRouter } from "next/navigation";
 import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import { FaRegBell, FaRegHeart, FaRegMessage } from "react-icons/fa6";
 import useSeller from "@/Components/hooks/useSeller";
+import useAdmin from "@/Components/hooks/useAdmin";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
+  const [isAdmin] = useAdmin();
   const [isSeller] = useSeller();
   const navigationbar = useRouter();
 
@@ -283,11 +285,34 @@ const Navbar = () => {
                         </li>
                       </>
                     )}
-                    <li className="mb-1">
-                      <Link href="/dashboard" className="text-lg">
-                        Dashboard
-                      </Link>
-                    </li>
+                    {isAdmin ? (
+                      <li className="mb-1">
+                        <Link
+                          href="/dashboard/admin/overview"
+                          className="text-lg"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    ) : isSeller ? (
+                      <li className="mb-1">
+                        <Link
+                          href="/dashboard/seller/overview"
+                          className="text-lg"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    ) : (
+                      <li className="mb-1">
+                        <Link
+                          href="/dashboard/buyer/overview"
+                          className="text-lg"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    )}
                     <li className="">
                       <button
                         onClick={logoutFiles}

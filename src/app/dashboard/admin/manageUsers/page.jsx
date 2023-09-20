@@ -29,6 +29,30 @@ const ManageUsersPage = () => {
         }
       });
   };
+  const handleMakeSeller = (user) => {
+    axiosMagic
+      .patch(`http://localhost:5000/users/seller/${user._id}`)
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire("Updated!", `${user.name} is a Seller Now`, "success");
+        }
+      });
+  };
+  const handleMakeBuyer = (user) => {
+    axiosMagic
+      .patch(`http://localhost:5000/users/buyer/${user._id}`)
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire("Updated!", `${user.name} is a Buyer Now`, "success");
+        }
+      });
+  };
 
   const handleDelete = (user) => {
     Swal.fire({
@@ -58,7 +82,7 @@ const ManageUsersPage = () => {
   return (
     <>
       <div className="overflow-x-auto max-h-screen bg-base-100 px-5 ml-5 py-5">
-        <h1 className="text-center py-4 text-xl font-bold">Manage Users</h1>
+        <h1 className="text-center py-4 text-2xl font-bold">Manage Users</h1>
         <table className="table w-full">
           {/* head */}
           <thead className="text-black text-[16px]">
@@ -67,7 +91,9 @@ const ManageUsersPage = () => {
               <th>Image</th>
               <th>User Name</th>
               <th>User Email</th>
-              <th>Admim Role</th>
+              <th>Make Admin</th>
+              <th>Make Seller</th>
+              <th>Make Buyer</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -91,13 +117,37 @@ const ManageUsersPage = () => {
                 <td>{user.email}</td>
                 <td>
                   {user.role === "admin" ? (
-                    "admin"
+                    "Admin"
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-sm text-black bg-base-300 hover:bg-gray-300"
+                      className="btn btn-sm text-white bg-green-500 hover:bg-green-700"
                     >
-                      Make Admin
+                      Admin
+                    </button>
+                  )}
+                </td>
+                <td>
+                  {user.role === "seller" ? (
+                    "Seller"
+                  ) : (
+                    <button
+                      onClick={() => handleMakeSeller(user)}
+                      className="btn btn-sm text-white bg-green-500 hover:bg-green-700"
+                    >
+                      Seller
+                    </button>
+                  )}
+                </td>
+                <td>
+                  {user.role === "buyer" ? (
+                    "Buyer"
+                  ) : (
+                    <button
+                      onClick={() => handleMakeBuyer(user)}
+                      className="btn btn-sm text-white bg-green-500 hover:bg-green-700"
+                    >
+                      Buyer
                     </button>
                   )}
                 </td>
