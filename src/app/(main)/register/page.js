@@ -3,12 +3,14 @@
 import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import { updateProfile } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert";
 
 const RegistrationPage = () => {
-  const { createRegister, userProfile } = useContext(AuthContextPro);
+  const { createRegister } = useContext(AuthContextPro);
+  const router = useRouter();
   const {
     reset,
     register,
@@ -54,12 +56,12 @@ const RegistrationPage = () => {
 
       if (result.insertedId) {
         swal({
-          text: `Hi ${userProfile?.displayName}, Successfully completed Registration`,
+          text: `Successfully Registered`,
           icon: "success",
         });
       }
-
       reset();
+      router.push("/");
     } catch (error) {
       const errorNotice = error.message;
       console.log(errorNotice);

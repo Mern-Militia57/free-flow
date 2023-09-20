@@ -75,10 +75,10 @@ const DashboardLayout = ({ children }) => {
                   <Link href="/dashboard/seller/overview">Overview</Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/seller/myGigs">MyGigs</Link>
+                  <Link href="/dashboard/seller/myGigs">My Gigs</Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/seller/myClients">MyClients</Link>
+                  <Link href="/dashboard/seller/myClients">My Clients</Link>
                 </li>
                 <li>
                   <a>Invoices</a>
@@ -90,8 +90,10 @@ const DashboardLayout = ({ children }) => {
                   <Link href="/dashboard/buyer/overview">Overview</Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/buyer/myJobs">MY Jobs</Link>
-                  <a>Posted Projects</a>
+                  <Link href="/dashboard/buyer/myProjects">My Projects</Link>
+                </li>
+                <li>
+                  <a>Project Proposals</a>
                 </li>
                 <li>
                   <a>Selected Gigs</a>
