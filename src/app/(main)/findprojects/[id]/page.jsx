@@ -1,11 +1,15 @@
 "use client";
 import useProjects from "@/Components/hooks/useProjects";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Loading from "./loading";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 
 const ProjectDetailsPage = ({ params }) => {
   const id = params.id;
+  const { userProfile } = useContext(AuthContextPro);
   const [projects] = useProjects();
   const [SingleProject, setSingleProject] = useState(null);
 
@@ -19,6 +23,30 @@ const ProjectDetailsPage = ({ params }) => {
       }
     }
   }, [id, projects]);
+  const { register, handleSubmit, reset } = useForm();
+  const SendProposal = async (data) => {
+    try {
+      const res = await axios.post("http://localhost:5000/project_proposal", {
+        project_id: SingleProject._id,
+        proposer: userProfile?.displayName,
+        proposerPhoto: userProfile?.photoURL,
+        proposeremail: userProfile?.email,
+        project_holder: SingleProject.applier,
+        project_holder_email: SingleProject.email,
+        proposingTime: new Date(),
+        project_title: SingleProject.title,
+        project_category: SingleProject.category,
+        project_subCategory: SingleProject.subCategory,
+        proposal_subject: data.subject,
+        proposal_details: data.proposal,
+      });
+      const result = res.data;
+      console.log(result);
+      reset();
+    } catch (error) {
+      console.error("Error sending proposal:", error);
+    }
+  };
 
   return (
     <>
@@ -87,10 +115,63 @@ const ProjectDetailsPage = ({ params }) => {
               </div>
             </div>
             <div className="text-end">
-              <button className="btn bg-green-600 hover:bg-green-800 text-white">
+              <button
+                onClick={() => document.getElementById("my_modal").showModal()}
+                className="btn bg-green-600 hover:bg-green-800 text-white"
+              >
                 Send Proposal
               </button>
             </div>
+            <dialog id="my_modal" className="modal">
+              <div className="modal-box">
+                <form method="dialog">
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    ✕
+                  </button>
+                </form>
+                <h3 className="font-bold text-center text-lg">
+                  Write Your Proposal
+                </h3>
+                <form onSubmit={handleSubmit(SendProposal)}>
+                  <div className="form-control w-full mt-3">
+                    <label className="label">
+                      <span className="label-text">Subject</span>
+                    </label>
+                    <input
+                      type="text"
+                      {...register("subject", { required: true })}
+                      placeholder="Write a Subject"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </div>
+                  <div className="form-control mt-3">
+                    <label className="label">
+                      <span className="label-text">Your Proposal</span>
+                    </label>
+                    <textarea
+                      {...register("proposal", {
+                        required: true,
+                        maxLength: 100,
+                      })}
+                      className="textarea textarea-bordered h-24"
+                      placeholder="Write Proposal"
+                    ></textarea>
+                    <label className="label">
+                      <span className="label-text-alt">
+                        Word limit 100 words
+                      </span>
+                    </label>
+                  </div>
+                  <div className="form-control my-2">
+                    <input
+                      className="btn btn-sm bg-green-500 hover:bg-green-800 text-white"
+                      type="submit"
+                      value="Send"
+                    />
+                  </div>
+                </form>
+              </div>
+            </dialog>
           </div>
         </main>
       ) : (
