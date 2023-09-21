@@ -37,7 +37,6 @@ import spinnerfun from "@/Components/LottieAnimation/spinnerjsonFiles.json";
 import { ImLoop2 } from "react-icons/im";
 
 const DetailsFreelancer = () => {
-<<<<<<< HEAD
   const [topPosition, setTopPosition] = useState(10); 
 
   const [axiosMagic] = useMagicAxiosBoss()
@@ -87,102 +86,6 @@ Details_And_Faq} = findQuest
  const getUserDetailsData = Details_And_Faq.details
     const contentState = convertFromRaw(getUserDetailsData);
      const editorState = EditorState.createWithContent(contentState);
-
-
-
-function onClickOrder(props){
-
-const values = {pakage:props,ordergigsdetails:findQuest,userProfile:personal_Information,buyerEmail:userProfile?.email}
-console.log(values);
-axiosMagic.post('/buerorder',values)
-.then(res=>window.location.replace(res.data.url))
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-const handleScroll = () => {
-  const scrollTop = window.scrollY;
-
-  // Adjust the top position based on the scroll position
-  if (scrollTop <= 100) {
-    setTopPosition(10); // Within the range
-  } else {
-    setTopPosition(scrollTop - 90); // Outside the range
-  }
-};
-
-// Attach the scroll event listener
-window.addEventListener('scroll', handleScroll);
-
-
-
-console.log(topPosition);
-
-
-=======
-  const [topPosition, setTopPosition] = useState(10);
-  const [axiosMagic] = useMagicAxiosBoss();
-  const [usergigs, refetch] = useAllGigsPost();
-  const [userDetails] = useAllUserProfile();
-  const { id } = useParams();
-  const { userProfile } = useContext(AuthContextPro);
->>>>>>> 1bc983847195ec76f4c3f9d0f4822ea43af4a5af
-
-  if (usergigs.length <= 0 || !userDetails || userDetails.length === 0) {
-    return (
-      <>
-        <Lottie
-          className="w-5/12 mx-auto"
-          animationData={spinnerfun}
-          loop={true}
-        />
-      </>
-    );
-  }
-
-  const findQuest = usergigs.find((p) => p._id === id);
-
-  const userFindData = userDetails.find((p) => p.Email === findQuest.Email);
-
-  console.log(userFindData);
-
-  const { personal_Information, professional } = userFindData;
-
-  console.log(personal_Information);
-
-  const {
-    profileImages,
-    profileName,
-    order,
-    review,
-    Email,
-    gallary,
-    OverViewData,
-    Pricing,
-    Details_And_Faq,
-  } = findQuest;
-
-  //  review rating avarge -----------------
-  const reviewsRatingRate = review?.length;
-  let count = 0;
-  review?.map((p) => (count = count + p.review_rating));
-
-  const ratingData = Math.floor(count / reviewsRatingRate);
-
-  // ------------editor section--------
-  const getUserDetailsData = Details_And_Faq.details;
-  const contentState = convertFromRaw(getUserDetailsData);
-  const editorState = EditorState.createWithContent(contentState);
 
   function onClickOrder(props) {
     const values = {
