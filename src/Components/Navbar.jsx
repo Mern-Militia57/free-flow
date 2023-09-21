@@ -8,9 +8,11 @@ import { useRouter } from "next/navigation";
 import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import { FaRegBell, FaRegHeart, FaRegMessage } from "react-icons/fa6";
 import useSeller from "@/Components/hooks/useSeller";
+import useAdmin from "@/Components/hooks/useAdmin";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
+  const [isAdmin] = useAdmin();
   const [isSeller] = useSeller();
   const navigationbar = useRouter();
 
@@ -161,7 +163,6 @@ const Navbar = () => {
                     </ul>
                   </li>
                 </div>
-                
               </ul>
             </div>
           </div>
@@ -171,7 +172,7 @@ const Navbar = () => {
             <>
               <Link
                 href={
-                  (profileAvaible.length > 0) 
+                  profileAvaible.length > 0
                     ? "http://localhost:3000/manage_gigs/overviews"
                     : "/postjobs"
                 }
@@ -190,14 +191,39 @@ const Navbar = () => {
               </Link>
             </>
           )}
-
-          {userProfile && (
+          {/* {userProfile && (
             <div className="hidden md:flex gap-6 items-center mx-6">
-              <div className="cursor-pointer">
-                <FaRegBell className="text-xl" />
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="cursor-pointer">
+                  <FaRegBell className="text-xl" />
+                </label>
+                <div
+                  tabIndex={0}
+                  className="dropdown-content z-[1] card card-compact overflow-y-auto w-80 h-96 mt-4 bg-base-200"
+                >
+                  <div className="card-body">
+                    <h3 className="text-xl font-semibold text-center pb-2">
+                      Notifications
+                    </h3>
+                    <p>you can use any element as a dropdown.</p>
+                  </div>
+                </div>
               </div>
-              <div className="cursor-pointer">
-                <FaRegMessage className="text-xl" />
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="cursor-pointer">
+                  <FaRegMessage className="text-xl" />
+                </label>
+                <div
+                  tabIndex={0}
+                  className="dropdown-content z-[1] card card-compact overflow-y-auto w-80 h-96 mt-4 bg-base-200"
+                >
+                  <div className="card-body">
+                    <h3 className="text-xl font-semibold text-center pb-2">
+                      Messages
+                    </h3>
+                    <p>you can use any element as a dropdown.</p>
+                  </div>
+                </div>
               </div>
               <div className="cursor-pointer hidden">
                 <FaRegHeart className="text-xl" />
@@ -206,7 +232,7 @@ const Navbar = () => {
                 <p className="text-[16px] font-medium">Orders</p>
               </div>
             </div>
-          )}
+          )} */}
 
 
           <div className="hidden md:block">
@@ -269,11 +295,34 @@ const Navbar = () => {
                         </li>
                       </>
                     )}
-                    <li className="mb-1">
-                      <Link href="/dashboard" className="text-lg">
-                        Dashboard
-                      </Link>
-                    </li>
+                    {isAdmin ? (
+                      <li className="mb-1">
+                        <Link
+                          href="/dashboard/admin/overview"
+                          className="text-lg"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    ) : isSeller ? (
+                      <li className="mb-1">
+                        <Link
+                          href="/dashboard/seller/overview"
+                          className="text-lg"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    ) : (
+                      <li className="mb-1">
+                        <Link
+                          href="/dashboard/buyer/overview"
+                          className="text-lg"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    )}
                     <li className="">
                       <button
                         onClick={logoutFiles}

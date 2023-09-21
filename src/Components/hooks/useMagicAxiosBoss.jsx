@@ -4,7 +4,6 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 
-
 const useMagicAxiosBoss = () => {
   const compassing = useRouter();
   const { logoutProfile } = useContext(AuthContextPro);

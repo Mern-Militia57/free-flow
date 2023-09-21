@@ -6,16 +6,10 @@ import { BiLogoFacebookCircle } from "react-icons/bi";
 import React, { startTransition, useContext } from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert2";
-import { useRouter, useSearchParams } from "next/navigation";
-
-
-
-
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const search = useSearchParams();
-  const from = search.get("redirectUrl") || "/";
-  const { replace, refresh } = useRouter();
+  const router = useRouter();
   const { loginProfile, registerWithGoogle, registerWithFacebook } =
     useContext(AuthContextPro);
 
@@ -45,10 +39,10 @@ const LoginPage = () => {
           name: displayName,
           email: email,
           photo: photo,
-          role: "buyer"
+          role: "buyer",
         }),
       });
-
+      router.push("/");
       const result = await resServer.json();
       console.log(result);
     } catch (error) {
@@ -77,13 +71,10 @@ const LoginPage = () => {
     loginProfile(email, password)
       .then((credenAccount) => {
         console.log(credenAccount);
-        startTransition(() => {
-          refresh();
-          replace(from);
-          new swal({
-            title: "Login is Successfull",
-            icon: "success",
-          });
+        router.push("/")
+        new swal({
+          title: "Login is Successfull",
+          icon: "success",
         });
       })
       .catch((error) => {
@@ -169,13 +160,13 @@ const LoginPage = () => {
             <FcGoogle className="text-xl" />
             Sign In With Google
           </button>
-          <button
+          {/* <button
             onClick={faceboookdopen}
             className="btn bg-base-100 border-black  my-2 sm:my-0 w-full lg:w-80 text-black"
           >
             <BiLogoFacebookCircle className="text-xl text-blue-500" />
             Sign In With Facebook
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
