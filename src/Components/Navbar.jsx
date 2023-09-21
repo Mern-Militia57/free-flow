@@ -307,7 +307,7 @@ const Navbar = () => {
                     ) : isSeller ? (
                       <li className="mb-1">
                         <Link
-                          href="/dashboard/seller/overview"
+                          href="/dashboard/seller/order"
                           className="text-lg"
                         >
                           Dashboard
