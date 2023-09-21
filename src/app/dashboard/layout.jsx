@@ -16,9 +16,9 @@ const DashboardLayout = ({ children }) => {
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          {/* Page content here */}
+     
 
-          <div className="my-5">{children}</div>
+          <div className="my-5 ">{children}</div>
           <label
             htmlFor="my-drawer-2"
             className="btn w-14 bg-base-200 text-black drawer-button lg:hidden"
@@ -26,6 +26,7 @@ const DashboardLayout = ({ children }) => {
             <FaBars />
           </label>
         </div>
+
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 lg:ml-5 rounded-xl lg:my-5 w-64 h-full bg-gradient-to-t from-blue-600 to-cyan-700 text-white text-lg">
@@ -77,6 +78,9 @@ const DashboardLayout = ({ children }) => {
                 </li>
                 <li>
                   <Link href="/dashboard/seller/myGigs">My Gigs</Link>
+                </li>
+                <li>
+                  <Link href="/dashboard/seller/order">Order</Link>
                 </li>
                 <li>
                   <Link href="/dashboard/seller/myClients">MyClients</Link>

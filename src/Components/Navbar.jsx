@@ -234,6 +234,7 @@ const Navbar = () => {
             </div>
           )} */}
 
+
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">
               {userProfile ? (
@@ -242,6 +243,7 @@ const Navbar = () => {
                     tabIndex={0}
                     className="btn-ghost btn-circle avatar btn"
                   >
+            
                     <div className="w-10 border-purple-900 border-2 rounded-full">
                       <Image
                         title={userProfile?.displayName}
@@ -251,6 +253,7 @@ const Navbar = () => {
                         src={userProfile?.photoURL || ""}
                       />
                     </div>
+               
                   </label>
                   <ul
                     tabIndex={0}
@@ -260,6 +263,13 @@ const Navbar = () => {
                       {userProfile?.displayName}
                     </li>
                     <div className="divider my-0"></div>
+                    <li className="mb-1">
+                      <Link href="/profile" className="text-lg">
+                       Profile
+                      </Link>
+                    </li>
+
+
                     <li className="mb-1">
                       <Link href="/post_project" className="text-lg">
                         Post a Project
