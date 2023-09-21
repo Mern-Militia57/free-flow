@@ -33,19 +33,18 @@ import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import useAllGigsPost from "@/Components/hooks/useAllGigsPost";
 import useAllUserProfile from "@/Components/hooks/useAllUserProfile";
 import Lottie from "lottie-react";
-import spinnerfun from "../../../../Components/LottieAnimation/spinnerjsonFiles.json";
+import spinnerfun from "@/Components/LottieAnimation/spinnerjsonFiles.json";
 import { ImLoop2 } from "react-icons/im";
 
 const DetailsFreelancer = () => {
   const [topPosition, setTopPosition] = useState(10);
-
   const [axiosMagic] = useMagicAxiosBoss();
   const [usergigs, refetch] = useAllGigsPost();
   const [userDetails] = useAllUserProfile();
   const { id } = useParams();
   const { userProfile } = useContext(AuthContextPro);
 
-  if (usergigs.length <= 0) {
+  if (usergigs.length <= 0 || !userDetails || userDetails.length === 0) {
     return (
       <>
         <Lottie
@@ -57,8 +56,11 @@ const DetailsFreelancer = () => {
     );
   }
 
-  const findQuest = usergigs?.find((p) => p._id === id);
-  const userFindData = userDetails?.find((p) => p?.Email === findQuest.Email);
+  const findQuest = usergigs.find((p) => p._id === id);
+
+  const userFindData = userDetails.find((p) => p.Email === findQuest.Email);
+
+  console.log(userFindData);
 
   const { personal_Information, professional } = userFindData;
 
@@ -178,18 +180,16 @@ const DetailsFreelancer = () => {
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
               className="mySwiper"
             >
-              {gallary.map((p) => (
-                <>
-                  <SwiperSlide>
-                    <Image
-                      className="sm:w-full"
-                      src={p}
-                      width={400}
-                      height={200}
-                      alt=""
-                    />
-                  </SwiperSlide>
-                </>
+              {gallary.map((p, index) => (
+                <SwiperSlide key={`slide-${index}`}>
+                  <Image
+                    className="sm:w-full"
+                    src={p}
+                    width={400}
+                    height={200}
+                    alt=""
+                  />
+                </SwiperSlide>
               ))}
             </Swiper>
           </div>
