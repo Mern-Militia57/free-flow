@@ -72,7 +72,7 @@ const ProjectForm = () => {
         publicVisibility: data.visibility_public,
         privateVisibility: data.visibility_private,
         question: data.question,
-        status: "pending"
+        status: "pending",
       });
       const result = res.data;
 
@@ -81,7 +81,7 @@ const ProjectForm = () => {
           title: "Project Posted Successfully",
           icon: "success",
         });
-        reset()
+        reset();
       } else {
         console.error("Invalid server response:", result);
       }
@@ -349,7 +349,7 @@ const ProjectForm = () => {
         </section>
         <section className="text-end">
           <input
-            className="btn bg-blue-700 hover:bg-blue-900 text-white rounded-none"
+            className="btn bg-green-500 hover:bg-green-800 text-white rounded-none"
             type="submit"
             value="Post Project"
           />

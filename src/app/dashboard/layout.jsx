@@ -51,14 +51,14 @@ const DashboardLayout = ({ children }) => {
                     All Projects
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/dashboard/admin/manageGigs">Manage Gigs</Link>
                 </li>
                 <li>
                   <Link href="/dashboard/admin/allFreelancers">
                     Freelancers
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/dashboard/admin/analysePayments">
                     Analyse Payments
@@ -75,23 +75,10 @@ const DashboardLayout = ({ children }) => {
                 <li>
                   <Link href="/dashboard/seller/overview">Overview</Link>
                 </li>
-<<<<<<< HEAD
-               <li>
-                  <Link href="/dashboard/seller/overview">Order</Link>
-                </li>
-               <li>
-                  <Link href="/dashboard/seller/myGigs">MyGigs</Link>
-                </li>
-               <li>
-                  <Link href="/dashboard/seller/myGigs">Warning</Link>
-                </li>
-               <li>
-=======
                 <li>
-                  <Link href="/dashboard/seller/myGigs">MyGigs</Link>
+                  <Link href="/dashboard/seller/myGigs">My Gigs</Link>
                 </li>
                 <li>
->>>>>>> origin
                   <Link href="/dashboard/seller/myClients">MyClients</Link>
                 </li>
                 <li>
@@ -104,8 +91,10 @@ const DashboardLayout = ({ children }) => {
                   <Link href="/dashboard/buyer/overview">Overview</Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/buyer/myJobs">MY Jobs</Link>
-                  <a>Posted Projects</a>
+                  <Link href="/dashboard/buyer/myProjects">My Projects</Link>
+                </li>
+                <li>
+                  <a>Project Proposals</a>
                 </li>
                 <li>
                   <a>Selected Gigs</a>

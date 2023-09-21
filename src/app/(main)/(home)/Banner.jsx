@@ -10,7 +10,7 @@ import { SlBadge } from "react-icons/sl";
 const Banner = () => {
   return (
     <>
-      <div className="hero bg-gradient-to-t from-cyan-200 to-slate-100 py-14">
+      <div className="hero bg-gradient-to-t from-cyan-200 to-slate-100 py-16">
         <div className="hero-content flex-col justify-around lg:flex-row-reverse px-10">
           <div className="flex flex-col lg:flex-row gap-2">
             <div>
