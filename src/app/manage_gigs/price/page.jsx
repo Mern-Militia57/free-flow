@@ -6,11 +6,11 @@ import Loading from '../overviews/loading';
 
 const Price = () => {
   const navigationbar = useRouter()
-    const basic_delivery_days = ["1 days delivery", "3 days delivery", "5 days delivery", "4 days delivery", "8 days delivery", "10 days delivery", "12 days delivery",]
+    const basic_delivery_days = [1, 3, 5, 4, 8, 10, 12]
    
-    const standard_delivery_days = ["1 days delivery", "2 days delivery", "3 days delivery", "4 days delivery", "5 days delivery", "6 days delivery"]
-    const premium_delivery_days = ["1 days delivery", "2 days delivery", "3 days delivery", "4 days delivery", "5 days delivery",]
-    const basic_Rivision = ["Select",1, 2, 3, 4, 5, 6,"Unlimited"]
+    const standard_delivery_days = [1,2, 3, 4, 5, 6]
+    const premium_delivery_days = [1, 2,3,4,5]
+    const basic_Rivision = ["Select",1, 2, 3, 4, 5, 6,10]
 
 
 

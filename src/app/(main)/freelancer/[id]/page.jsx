@@ -43,27 +43,29 @@ const DetailsFreelancer = () => {
   const {userProfile} = useContext(AuthContextPro)
 
 
-  if (usergigs.length <= 0) {
-  return <>
+
+  if (usergigs.length <= 0 || userProfile.length <= 0 ) {
+
+  return (<>
   <Lottie
         className="w-5/12 mx-auto"
         animationData={spinnerfun}
         loop={true}
       />
   
-  </>
-  }
+  </>)
+  
+}
     
 
 
 
-const findQuest = usergigs?.find(p=>p._id === id)
+const findQuest = usergigs?.find(p=>p?._id === id)
 const userFindData = userDetails?.find(p=>p?.Email === findQuest.Email)
 
 
-const {personal_Information,professional} = userFindData
+const {personal_Information,professional} = userFindData?userFindData:[]
 
-console.log(personal_Information);
 
 
 const { profileImages,profileName,order,review,Email,gallary,OverViewData,Pricing,

@@ -1,8 +1,8 @@
- const datavalues =  
+ const datavalues =  [
 
- [
+  
   {
-    "_id": "65046452088d91af2738e3d9",
+    "_id": "650b05293af4e156b60d8827",
     "profileImages": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     "profileName": "Michael Brown",
     "order": 3,
@@ -35,22 +35,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "2-hour photoshoot session",
-        "deliveryTime": "1 week",
-        "revision": "1",
+        "deliveryTime": 1,
+        "revision": 1,
         "price": "200"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "4-hour photoshoot session",
-        "deliveryTime": "2 weeks",
-        "revision": "2",
+        "deliveryTime": 2,
+        "revision": 2,
         "price": "400"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "Full-day photoshoot session",
-        "deliveryTime": "3 weeks",
-        "revision": "3",
+        "deliveryTime": 3,
+        "revision": 3,
         "price": "800"
       }
     },
@@ -110,7 +110,7 @@
     }
   },
   {
-    "_id": "6504647b088d91af273926dc",
+    "_id": "650b05293af4e156b60d8828",
     "profileImages": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80",
     "profileName": "Emily Davis",
     "order": 10,
@@ -143,22 +143,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "Simple website development (5 pages)",
-        "deliveryTime": "14 days",
-        "revision": "2",
+        "deliveryTime": 14,
+        "revision": 2,
         "price": "500"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "Custom website development (10 pages)",
-        "deliveryTime": "21 days",
-        "revision": "3",
+        "deliveryTime": 21,
+        "revision": 3,
         "price": "800"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "E-commerce website development (20 pages)",
-        "deliveryTime": "28 days",
-        "revision": "4",
+        "deliveryTime": 28,
+        "revision": 4,
         "price": "1200"
       }
     },
@@ -214,7 +214,7 @@
     }
   },
   {
-    "_id": "650464cc088d91af2739bbaf",
+    "_id": "650b05293af4e156b60d8829",
     "profileImages": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
     "profileName": "Alice Johnson",
     "order": 5,
@@ -247,15 +247,15 @@
       "basicPackage": {
         "name": "Basic",
         "details": "5 hours of online tutoring",
-        "deliveryTime": "2 weeks",
-        "revision": "2",
+        "deliveryTime": 2,
+        "revision": 2,
         "price": "100"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "10 hours of online tutoring",
-        "deliveryTime": "3 weeks",
-        "revision": "3",
+        "deliveryTime": 3,
+        "revision": 3,
         "price": "200"
       },
       "premiumPackage": {
@@ -318,7 +318,7 @@
     }
   },
   {
-    "_id": "65046547088d91af273a94b4",
+    "_id": "650b05293af4e156b60d882a",
     "profileImages": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
     "profileName": "Liam Jackson",
     "order": 100,
@@ -351,22 +351,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "Keyword research and on-page optimization for 5 pages",
-        "deliveryTime": "7 days",
-        "revision": "2",
+        "deliveryTime": 7,
+        "revision": 2,
         "price": "250"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "Keyword research, on-page optimization for 10 pages, and basic backlinking",
-        "deliveryTime": "14 days",
-        "revision": "3",
+        "deliveryTime": 14,
+        "revision": 3,
         "price": "450"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "Complete SEO package with keyword research, on-page optimization for 20 pages, advanced backlinking, and monthly reporting",
-        "deliveryTime": "30 days",
-        "revision": "4",
+        "deliveryTime": 30,
+        "revision": 4,
         "price": "800"
       }
     },
@@ -422,7 +422,7 @@
     }
   },
   {
-    "_id": "65046577088d91af273ae2cb",
+    "_id": "650b05293af4e156b60d882b",
     "profileImages": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
     "profileName": "John Smith",
     "order": 2,
@@ -454,22 +454,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "5 blog articles (500 words each)",
-        "deliveryTime": "10 days",
-        "revision": "2",
+        "deliveryTime": 10,
+        "revision": 2,
         "price": "150"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "10 blog articles (500 words each)",
-        "deliveryTime": "14 days",
-        "revision": "3",
+        "deliveryTime": 14,
+        "revision": 3,
         "price": "300"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "15 blog articles (500 words each)",
-        "deliveryTime": "21 days",
-        "revision": "4",
+        "deliveryTime": 21,
+        "revision": 4,
         "price": "450"
       }
     },
@@ -525,7 +525,7 @@
     }
   },
   {
-    "_id": "65046592088d91af273b0f6b",
+    "_id": "650b05293af4e156b60d882c",
     "profileImages": "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     "profileName": "Sophia Martinez",
     "order": 2,
@@ -557,22 +557,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "3 social media graphics",
-        "deliveryTime": "3 days",
-        "revision": "2",
+        "deliveryTime": 3,
+        "revision": 2,
         "price": "50"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "5 social media graphics",
-        "deliveryTime": "5 days",
-        "revision": "3",
+        "deliveryTime": 5,
+        "revision": 3,
         "price": "80"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "10 social media graphics and 1 custom logo",
-        "deliveryTime": "7 days",
-        "revision": "4",
+        "deliveryTime": 7,
+        "revision": 4,
         "price": "150"
       }
     },
@@ -628,7 +628,7 @@
     }
   },
   {
-    "_id": "650465b2088d91af273b43fc",
+    "_id": "650b05293af4e156b60d882d",
     "profileImages": "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     "profileName": "Olivia Wilson",
     "order": 30,
@@ -661,22 +661,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "1000 data entries",
-        "deliveryTime": "5 days",
-        "revision": "1",
+        "deliveryTime": 5,
+        "revision": 1,
         "price": "100"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "2000 data entries",
-        "deliveryTime": "7 days",
-        "revision": "2",
+        "deliveryTime": 7,
+        "revision": 2,
         "price": "200"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "5000 data entries",
-        "deliveryTime": "10 days",
-        "revision": "3",
+        "deliveryTime": 10,
+        "revision": 3,
         "price": "350"
       }
     },
@@ -732,7 +732,7 @@
     }
   },
   {
-    "_id": "650465d3088d91af273b77d3",
+    "_id": "650b05293af4e156b60d882e",
     "profileImages": "https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
     "profileName": "Ethan Clark",
     "order": 8,
@@ -765,22 +765,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "Manage 2 social media platforms for one month",
-        "deliveryTime": "1 month",
-        "revision": "1",
+        "deliveryTime": 1,
+        "revision": 1,
         "price": "200"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "Manage 3 social media platforms for one month",
-        "deliveryTime": "1 month",
-        "revision": "2",
+        "deliveryTime": 1,
+        "revision": 2,
         "price": "350"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "Manage 4 social media platforms for one month with custom content creation",
-        "deliveryTime": "1 month",
-        "revision": "3",
+        "deliveryTime": 1,
+        "revision": 3,
         "price": "500"
       }
     },
@@ -836,7 +836,7 @@
     }
   },
   {
-    "_id": "650465fd088d91af273bbe72",
+    "_id": "650b05293af4e156b60d882f",
     "profileImages": "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
     "profileName": "Daniel Anderson",
     "order": 20,
@@ -869,22 +869,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "Logo and business card design",
-        "deliveryTime": "7 days",
-        "revision": "2",
+        "deliveryTime": 7,
+        "revision": 2,
         "price": "250"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "Logo, business card, and brochure design",
-        "deliveryTime": "14 days",
-        "revision": "3",
+        "deliveryTime": 14,
+        "revision": 3,
         "price": "500"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "Complete branding package (logo, business card, brochure, and website design)",
-        "deliveryTime": "21 days",
-        "revision": "4",
+        "deliveryTime": 21,
+        "revision": 4,
         "price": "1000"
       }
     },
@@ -940,7 +940,7 @@
     }
   },
   {
-    "_id": "6504662f088d91af273c11c8",
+    "_id": "650b05293af4e156b60d8830",
     "profileImages": "https://images.unsplash.com/photo-1609010697446-11f2155278f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     "profileName": "Ava Harris",
     "order": 12,
@@ -972,22 +972,22 @@
       "basicPackage": {
         "name": "Basic",
         "details": "10 hours of virtual assistant services",
-        "deliveryTime": "2 weeks",
-        "revision": "2",
+        "deliveryTime": 2,
+        "revision": 2,
         "price": "150"
       },
       "standardPackage": {
         "name": "Standard",
         "details": "20 hours of virtual assistant services",
-        "deliveryTime": "3 weeks",
-        "revision": "3",
+        "deliveryTime": 3,
+        "revision": 3,
         "price": "300"
       },
       "premiumPackage": {
         "name": "Premium",
         "details": "40 hours of virtual assistant services",
-        "deliveryTime": "4 weeks",
-        "revision": "4",
+        "deliveryTime": 4,
+        "revision": 4,
         "price": "500"
       }
     },
@@ -1043,7 +1043,7 @@
     }
   },
   {
-    "_id": "650469e1088d91af27423530",
+    "_id": "650b05293af4e156b60d8831",
     "Email": "mahfuzrn012@gmail.com",
     "profileImages": "https://plus.unsplash.com/premium_photo-1666265384842-31bdda25f026?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
     "profileName": "Mahfuz",
@@ -1078,22 +1078,22 @@
       "basicPackage": {
         "name": "Normal Quality",
         "details": "Custom Logo Design\nBusiness Card Design\nSocial Media Profile Graphics (Cover Photo & Profile Picture)",
-        "deliveryTime": "8 days delivery",
-        "revision": "3",
+        "deliveryTime": 8,
+        "revision": 3,
         "price": "60"
       },
       "standardPackage": {
         "name": "medium Quality",
         "details": "Brochure or Flyer Design\nLetterhead and Envelope Design\nBrand Style Guide (Colors, Fonts)",
-        "deliveryTime": "3 days delivery",
-        "revision": "2",
+        "deliveryTime": 3,
+        "revision": 2,
         "price": "70"
       },
       "premiumPackage": {
         "name": "high Quality",
         "details": "Custom Website Banner or Landing Page Design\nPackaging Design (Product Label or Box)\nSocial Media Advertisements (3 Variations)\nPriority Support",
-        "deliveryTime": "2 days delivery",
-        "revision": "1",
+        "deliveryTime": 2,
+        "revision": 1,
         "price": "80"
       }
     },
@@ -1446,6 +1446,7 @@
   }
 ]
 
+ 
 
 
 export default datavalues;
