@@ -37,55 +37,56 @@ import spinnerfun from "@/Components/LottieAnimation/spinnerjsonFiles.json";
 import { ImLoop2 } from "react-icons/im";
 
 const DetailsFreelancer = () => {
-  const [topPosition, setTopPosition] = useState(10); 
+  const [topPosition, setTopPosition] = useState(10);
 
-  const [axiosMagic] = useMagicAxiosBoss()
-  const [usergigs,refetch] = useAllGigsPost()
-  const [ userDetails ] = useAllUserProfile()
-  const {id} = useParams()
-  const {userProfile} = useContext(AuthContextPro)
+  const [axiosMagic] = useMagicAxiosBoss();
+  const [usergigs, refetch] = useAllGigsPost();
+  const [userDetails] = useAllUserProfile();
+  const { id } = useParams();
+  const { userProfile } = useContext(AuthContextPro);
 
+  if (usergigs.length <= 0 || userProfile.length <= 0) {
+    return (
+      <>
+        <Lottie
+          className="w-5/12 mx-auto"
+          animationData={spinnerfun}
+          loop={true}
+        />
+      </>
+    );
+  }
 
+  const findQuest = usergigs?.find((p) => p?._id === id);
+  const userFindData = userDetails?.find((p) => p?.Email === findQuest.Email);
 
-  if (usergigs.length <= 0 || userProfile.length <= 0 ) {
+  const { personal_Information, professional } = userFindData
+    ? userFindData
+    : [];
 
-  return (<>
-  <Lottie
-        className="w-5/12 mx-auto"
-        animationData={spinnerfun}
-        loop={true}
-      />
-  
-  </>)
-  
-}
-    
+  const {
+    profileImages,
+    profileName,
+    order,
+    review,
+    Email,
+    gallary,
+    OverViewData,
+    Pricing,
+    Details_And_Faq,
+  } = findQuest;
 
+  //  review rating avarge -----------------
+  const reviewsRatingRate = review?.length;
+  let count = 0;
+  review?.map((p) => (count = count + p.review_rating));
 
+  const ratingData = Math.floor(count / reviewsRatingRate);
 
-const findQuest = usergigs?.find(p=>p?._id === id)
-const userFindData = userDetails?.find(p=>p?.Email === findQuest.Email)
-
-
-const {personal_Information,professional} = userFindData?userFindData:[]
-
-
-
-const { profileImages,profileName,order,review,Email,gallary,OverViewData,Pricing,
-Details_And_Faq} = findQuest
-
-
-//  review rating avarge -----------------
-    const reviewsRatingRate = review?.length
-    let count = 0
-     review?.map(p=>count=count+p.review_rating)
-    
-    const ratingData = Math.floor(count/reviewsRatingRate)
-
-// ------------editor section--------
- const getUserDetailsData = Details_And_Faq.details
-    const contentState = convertFromRaw(getUserDetailsData);
-     const editorState = EditorState.createWithContent(contentState);
+  // ------------editor section--------
+  const getUserDetailsData = Details_And_Faq.details;
+  const contentState = convertFromRaw(getUserDetailsData);
+  const editorState = EditorState.createWithContent(contentState);
 
   function onClickOrder(props) {
     const values = {
