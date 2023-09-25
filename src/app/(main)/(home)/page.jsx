@@ -5,12 +5,15 @@ import Works from "./Works";
 import Reviews from "./Reviews";
 import TrustedBy from "./TrustedBy";
 import TheBest from "./TheBest";
+import Gallery from "./Gallery";
+import JoinFree from "./JoinFree";
 
 const HomePage = () => {
   return (
     <>
       <Banner />
-      <Criteria />
+      {/* <Criteria /> */}
+      <Gallery />
       <TrustedBy></TrustedBy>
       <TheBest></TheBest>
       <Works />
