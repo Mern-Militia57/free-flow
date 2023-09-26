@@ -261,7 +261,7 @@ const Navbar = () => {
                     </li>
                     <div className="divider my-0"></div>
                     <li className="mb-1">
-                      <Link href="/profile" className="text-lg">
+                      <Link href={`/profile/${userProfile?.email}`} className="text-lg">
                         Profile
                       </Link>
                     </li>

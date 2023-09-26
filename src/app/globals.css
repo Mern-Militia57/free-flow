@@ -108,8 +108,13 @@ color: green !important;
 
 
 
-
-
+.profile-card-shadow{
+  box-shadow: 0px 0px 8px  rgb(25, 25, 26) !important;
+  transition: all 0.3s ease;
+}
+.profile-card-shadow:hover{
+  box-shadow: 0px 0px 12px  rgb(93, 93, 248) !important;
+}
 
 
 

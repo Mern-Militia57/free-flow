@@ -35,6 +35,8 @@ import useAllUserProfile from "@/Components/hooks/useAllUserProfile";
 import Lottie from "lottie-react";
 import spinnerfun from "@/Components/LottieAnimation/spinnerjsonFiles.json";
 import { ImLoop2 } from "react-icons/im";
+import Link from "next/link";
+
 
 const DetailsFreelancer = () => {
   const [topPosition, setTopPosition] = useState(10);
@@ -100,6 +102,7 @@ const DetailsFreelancer = () => {
       .post("/buerorder", values)
       .then((res) => window.location.replace(res.data.url));
   }
+
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -272,11 +275,15 @@ const DetailsFreelancer = () => {
                   <span className="text-gray-500">({ratingData || 0})</span>
                 </div>
               </div>
+              
 
-              <button className=" btn  text-white rounded-md   bg-[#FF6969] sm:ms-5">
+
+<Link href={`/profile/${Email}`} className=" btn  text-white rounded-md   bg-[#FF6969] sm:ms-5">
                 Details
                 <BiRightArrow className="" />
-              </button>
+</Link>
+
+
             </div>
           </div>
 

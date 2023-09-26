@@ -3,17 +3,18 @@ import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 
 import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import usePaymenthistory from "@/Components/hooks/usePaymenthistory";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
+import swal from "sweetalert";
+
 
 const BuyerOrder = () => {
   const { userProfile } = useContext(AuthContextPro);
   const [paymenthistory] = usePaymenthistory();
 
   const [orderlist, setorder] = useState([]);
-
-  console.log(userProfile);
 
   useEffect(() => {
     if (paymenthistory) {
@@ -66,6 +67,9 @@ const BuyerOrder = () => {
   );
 };
 
+
+
+
 function TableCard({ data, number }) {
   const {
     buyerInformation,
@@ -77,14 +81,13 @@ function TableCard({ data, number }) {
   } = data;
 
   const [axiosMagic] = useMagicAxiosBoss();
+const deliveryTime = pakageinfromation?.deliveryTime;
 
-  const deliveryTime = pakageinfromation?.deliveryTime;
+
 
   function isStop() {
     const currentDate = new Date();
-    const targetDate = accheptTime
-      ? new Date(accheptTime)
-      : new Date(currentDate.getTime() + deliveryTime * 24 * 60 * 60 * 1000);
+     const targetDate = accheptTime? new Date(accheptTime):new Date(currentDate.getTime() + deliveryTime * 24 * 60 * 60 * 1000);
 
     const updatevalues = { id: _id, times: targetDate.toISOString() };
 
@@ -137,6 +140,68 @@ function TableCard({ data, number }) {
       clearInterval(timer);
     };
   }, [isStop]);
+
+
+
+
+const [loaders,setLoadingTimes] = useState(false)
+const[hiddenfile,sethiddine] = useState(false)
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  
+  };
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    if (!file) {
+      alert('Please select a file to upload.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('zips', file);
+
+    try {
+      setLoadingTimes(true)
+      const response = await axios.post(`http://localhost:5000/upload/${_id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', 
+        },
+      });
+
+      console.log(response.data);
+      setLoadingTimes(false)
+   
+        new swal({
+        icon: 'success',
+        title: 'File uploaded successfully.',
+      });
+  
+     
+    } catch (error) {
+      console.error('Error uploading file:', error.response?.data);
+      new swal({
+        icon: 'error',
+        title: 'Error',
+        text: 'Error uploading file: ' + (error.response?.data || 'An error occurred.'),
+      });
+     
+    }
+
+  };
+
+  
+
+
+
+
+
+
+
 
   return (
     <>
@@ -191,14 +256,70 @@ function TableCard({ data, number }) {
         <td>{pakageinfromation?.name}</td>
 
         <td>
-          <button onClick={isStop} className="btn bg-[#FF9EAA]">
+          <button onClick={isStop} className="btn sm:w-full bg-[#FF9EAA]">
             Confirm
+          </button>
+
+
+<button className="btn sm:w-full bg-[#A6FF96]" onClick={()=>document.getElementById('my_modal_3').showModal()}>Submit Work</button>
+
+<dialog id="my_modal_3" className={`modal`}>
+
+<div className="modal-box">
+  <form method="dialog">
+ <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+  </form>
+
+
+{loaders?<span className="loading loading-bars loading-lg"></span>:<>
+<h3 className="font-bold text-lg">Hello Seller,</h3>
+  <p className="py-4 text-red-600">
+Here, Submit your work by attaching the <span className="font-bold text-xl">Zip file</span>;<br></br> otherwise, the work will not be accepted.</p>
+
+
+<form onSubmit={handleSubmit}>
+<input type="file" onChange={handleFileChange} name="zips" className="file-input file-input-bordered file-input-info w-full max-w-md" />
+
+<div className="my-5 ">
+<input type="submit"  className="sm:w-6/12  btn bg-cyan-300" 
+value="Submit"/>
+</div>
+
+</form>
+
+</>}
+
+
+</div>
+</dialog>
+  
+  
+
+
+          <button className="btn sm:w-full text-white bg-[#C23373]">
+            Reject
           </button>
         </td>
         <td></td>
       </tr>
+
+
+
+      
+
+
     </>
   );
 }
 
+
+
+
+
+
+
+
 export default BuyerOrder;
+
+
+
