@@ -16,6 +16,7 @@ const userDetails =
         "Language": "English",
         "member_since": "2023-09-10"
       },
+
       "professional": {
         "occupation": {
           "occupation_Major": "Web Developer",
@@ -53,6 +54,7 @@ const userDetails =
         },
         "spend_Time": "5"
       },
+      
       "Email": "mahfuzrn012@gmail.com"
     },
     {
@@ -165,6 +167,9 @@ const userDetails =
       },
       "Email": "alice.johnson@example.com"
     },
+
+
+
     {
       "_id": "650462f5088d91af2736adc4",
       "Email": "john.smith@example.com",

@@ -500,8 +500,8 @@ const ProfessionalInfo = () => {
                 />
 
                 <p className="my-2 text-gray-500 ms-2">
-                  Kindly provide me with the link to your uploaded image (using
-                  platforms like imgbb or others)
+                  Kindly provide me with the link to your uploaded image
+                  <span className="text-red-600"> (we are accept only imgbb hosted URL)</span> 
                 </p>
               </div>
             </div>

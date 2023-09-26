@@ -94,6 +94,8 @@ const UploadFile = () => {
     fetchZipData();
   }, []);
 
+
+  
   const base64ToArrayBuffer = (base64) => {
     const binaryString = atob(base64);
     const length = binaryString.length;
@@ -105,6 +107,8 @@ const UploadFile = () => {
 
     return bytes.buffer;
   };
+
+
 
   const handleDownloadClick = () => {
     if (zipData) {
